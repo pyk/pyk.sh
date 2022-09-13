@@ -5,8 +5,10 @@
     "main": "index.js",
     "scripts": {
         "prettier": "prettier --check .",
-        "site:build": "eleventy",
-        "site:dev": "eleventy --serve",
+        "build": "eleventy",
+        "dev:serve": "eleventy --serve",
+        "dev:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --watch --minify",
+        "dev": "concurrently pnpm:dev:*",
         "prepare": "husky install",
         "postinstall": "pnpm prepare",
         "commit:lint": "lint-staged",
@@ -18,8 +20,10 @@
         "@commitlint/cli": "17.1.2",
         "@commitlint/config-conventional": "17.1.0",
         "@risedle/prettier-config": "0.1.2",
+        "concurrently": "7.4.0",
         "husky": "8.0.1",
         "lint-staged": "13.0.3",
-        "prettier": "2.7.1"
+        "prettier": "2.7.1",
+        "tailwindcss": "3.1.8"
     }
 }
