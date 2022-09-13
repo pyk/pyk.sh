@@ -27,8 +27,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="text-lg font-inter text-red-500">
-    {{ content | safe }}
+<body class="font-inter">
+    <div class="container mx-auto max-w-[960px] px-6 mt-16">
+
+        <header class="space-y-4">
+            <div class="flex flex-row space-x-2">
+                <img class="w-[24px] h-[24px]" src="/pyk.png" />
+                <span class="text-base font-semibold">pyk</span>
+            </div>
+            <nav>
+                <ul class="flex flex-row space-x-4">
+                    <li>
+                        <a href="/"
+                           class="
+                                text-sm
+                                leading-4
+                                text-light-label-secondary
+                                hover:text-light-label-default
+                        ">
+                            Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/pyk"
+                           target="_blank"
+                           class="
+                                text-sm
+                                leading-4
+                                text-light-label-secondary
+                                hover:text-light-label-default
+                        ">
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/sepyke"
+                           target="_blank"
+                           class="
+                                text-sm
+                                leading-4
+                                text-light-label-secondary
+                                hover:text-light-label-default
+                        ">
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:gm@pyk.sh"
+                           class="
+                                text-sm
+                                leading-4
+                                text-light-label-secondary
+                                hover:text-light-label-default
+                        ">
+                            gm@pyk.sh
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        {{ content | safe }}
+    </div>
 </body>
 
 </html>
