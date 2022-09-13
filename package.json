@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "prettier": "prettier --check .",
-        "build": "eleventy",
+        "build:site": "eleventy",
+        "build:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --minify",
+        "build": "concurrently pnpm:build:*",
         "dev:serve": "eleventy --serve",
         "dev:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --watch --minify",
         "dev": "concurrently pnpm:dev:*",
