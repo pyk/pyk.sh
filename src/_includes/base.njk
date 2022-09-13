@@ -28,15 +28,39 @@
 </head>
 
 <body class="font-inter">
-    <div class="container mx-auto max-w-[960px] px-6 mt-16">
+    <div class="
+        container
+        mx-auto
+        max-w-[960px]
+        px-6
+        mt-16
+        flex
+        flex-col
+        sm:flex-row
+    ">
 
         <header class="space-y-4">
-            <div class="flex flex-row space-x-2">
-                <img class="w-[24px] h-[24px]" src="/pyk.png" />
+            <div class="
+                flex
+                flex-row
+                sm:flex-col
+                space-x-2
+                sm:space-x-0
+                sm:space-y-2
+            ">
+                <img class="w-[24px] sm:w-[64px]" src="/pyk.png" />
                 <span class="text-base font-semibold">pyk</span>
             </div>
             <nav>
-                <ul class="flex flex-row space-x-4">
+                <ul class="
+                    flex
+                    flex-row
+                    sm:flex-col
+                    space-x-4
+                    sm:space-x-0
+                    sm:space-y-2
+                    leading-4
+                ">
                     <li>
                         <a href="/"
                            class="
@@ -86,8 +110,9 @@
                 </ul>
             </nav>
         </header>
-
+        <article>
         {{ content | safe }}
+        </article>
     </div>
 </body>
 
