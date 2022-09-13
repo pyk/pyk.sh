@@ -1,0 +1,25 @@
+{
+    "name": "pyk.sh",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "prettier": "prettier --check .",
+        "site:build": "eleventy",
+        "site:dev": "eleventy --serve",
+        "prepare": "husky install",
+        "postinstall": "pnpm prepare",
+        "commit:lint": "lint-staged",
+        "commit:msg": "commitlint"
+    },
+    "prettier": "@risedle/prettier-config",
+    "devDependencies": {
+        "@11ty/eleventy": "1.0.2",
+        "@commitlint/cli": "17.1.2",
+        "@commitlint/config-conventional": "17.1.0",
+        "@risedle/prettier-config": "0.1.2",
+        "husky": "8.0.1",
+        "lint-staged": "13.0.3",
+        "prettier": "2.7.1"
+    }
+}
