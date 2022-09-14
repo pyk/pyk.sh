@@ -16,6 +16,7 @@ module.exports = {
                     separator: {
                         default: "#3C3C434A",
                     },
+                    blue: "#007AFF",
                 },
             },
         },

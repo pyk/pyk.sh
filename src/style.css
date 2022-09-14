@@ -5,14 +5,15 @@
 body {
     @apply font-sans;
     @apply text-light-label-default;
+    @apply selection:text-white selection:bg-light-blue;
 }
 
 a {
-    @apply text-light-label-secondary hover:text-light-label-default;
+    @apply text-light-blue underline;
 }
 
 a[aria-current="page"] {
-    @apply text-light-label-default;
+    @apply text-light-blue underline;
 }
 
 /*****************************************************************************
@@ -59,6 +60,7 @@ nav > ul {
 
 nav > ul > li > a {
     @apply text-sm leading-4;
+    @apply text-light-label-default no-underline hover:text-light-blue hover:underline;
 }
 
 /*****************************************************************************
@@ -106,6 +108,7 @@ article > pre {
 article > pre,
 article > pre > code {
     @apply bg-light-bg-secondary !important;
+    @apply selection:text-white selection:bg-light-blue !important;
 }
 
 /*****************************************************************************
