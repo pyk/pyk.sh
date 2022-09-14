@@ -10,7 +10,7 @@ body {
 /* Container */
 #container {
     @apply container mx-auto max-w-[960px];
-    @apply px-6 mt-16;
+    @apply px-6 mt-6 sm:mt-16;
     @apply flex flex-col sm:flex-row;
 }
 
@@ -49,22 +49,23 @@ nav > ul > li > a {
 /* Article */
 article {
     @apply sm:basis-10/12 md:basis-8/12;
+    @apply mt-12 sm:mt-0;
 }
 
 article > h2 {
-    @apply text-3xl font-semibold;
-    @apply mb-4;
-}
-
-article > time {
-    @apply text-base text-light-label-secondary;
+    @apply text-xl sm:text-2xl font-semibold;
+    @apply mb-2 sm:mb-4;
 }
 
 article > h3 {
-    @apply text-2xl font-semibold;
-    @apply mt-12;
+    @apply text-xl sm:text-2xl font-semibold;
+    @apply mt-8 sm:mt-12;
+}
+
+article > time {
+    @apply text-sm sm:text-base text-light-label-secondary;
 }
 
 article > p {
-    @apply text-base my-6;
+    @apply text-sm sm:text-base my-4 sm:my-6;
 }
