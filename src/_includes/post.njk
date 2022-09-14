@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+
+<article>
+    <h2>{{ title }}</h2>
+    <time datetime="{{ date | formatDate("YYYY-MM-DD") }}">{{ date | formatDate("ddd MMM D YYYY") }}</time>
+
+    {{ content | safe }}
+</article>

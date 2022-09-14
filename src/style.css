@@ -4,6 +4,7 @@
 
 body {
     @apply font-inter;
+    @apply text-light-label-default;
 }
 
 /* Container */
@@ -14,32 +15,56 @@ body {
 }
 
 /* Header */
-#container > header {
+header {
     @apply space-y-4;
+    @apply sm:basis-2/12;
 }
 
 /* Profile */
-#container > header > #profile {
+header > #profile {
     @apply flex flex-row sm:flex-col;
     @apply space-x-2 sm:space-x-0 sm:space-y-2;
 }
 
-#container > header > #profile > img {
+header > #profile > img {
     @apply w-[24px] sm:w-[64px];
 }
 
-#container > header > #profile > span {
+header > #profile > span {
     @apply text-base font-semibold;
 }
 
 /* Navigation */
-#container > header > nav > ul {
+nav > ul {
     @apply flex flex-row sm:flex-col;
     @apply space-x-4 sm:space-x-0 sm:space-y-2;
     @apply leading-4;
 }
 
-#container > header > nav > ul > li > a {
+nav > ul > li > a {
     @apply text-sm leading-4;
     @apply text-light-label-secondary hover:text-light-label-default;
+}
+
+/* Article */
+article {
+    @apply sm:basis-10/12 md:basis-8/12;
+}
+
+article > h2 {
+    @apply text-3xl font-semibold;
+    @apply mb-4;
+}
+
+article > time {
+    @apply text-base text-light-label-secondary;
+}
+
+article > h3 {
+    @apply text-2xl font-semibold;
+    @apply mt-12;
+}
+
+article > p {
+    @apply text-base my-6;
 }
