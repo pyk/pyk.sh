@@ -17,6 +17,61 @@ module.exports = function (eleventyConfig) {
     const formatDate = (date, format) => dayjs(date).format(format);
     eleventyConfig.addFilter("formatDate", formatDate);
 
+    /**
+     * Get all tags
+     *
+     * Usage: {{ collections.tags }}
+     */
+    function filterTags(tags) {
+        return (tags || []).filter(
+            (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1
+        );
+    }
+    eleventyConfig.addFilter("filterTags", filterTags);
+
+    eleventyConfig.addCollection("tags", function (collection) {
+        let tagSet = new Set();
+        collection.getAll().forEach((item) => {
+            (item.data.tags || []).forEach((tag) => tagSet.add(tag));
+        });
+
+        return filterTags([...tagSet]);
+    });
+
+    /**
+     * Group post by year
+     *
+     * Usage:
+     * {%- for post in collections.postsByYear | reverse -%}'
+     */
+    eleventyConfig.addCollection("postsByYear", function (collection) {
+        const posts = collection.getFilteredByTag("post");
+        const yearCount = {};
+        posts.forEach(function (post) {
+            const year = post.date.getFullYear();
+            if (year in yearCount) {
+                yearCount[year] += 1;
+            } else {
+                yearCount[year] = 1;
+            }
+        });
+        const yearTracker = {};
+        const postsByYear = posts.reverse().map(function (post) {
+            let year = undefined;
+            let rowspan = undefined;
+            const postYear = post.date.getFullYear();
+            if (!(postYear in yearTracker)) {
+                year = postYear;
+                rowspan = yearCount[year];
+                yearTracker[postYear] = 1;
+            }
+            post["year"] = year;
+            post["rowspan"] = rowspan;
+            return post;
+        });
+        return postsByYear;
+    });
+
     return {
         dir: {
             input: "src",

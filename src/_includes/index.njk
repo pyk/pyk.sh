@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+
+<article>
+    <h2>{{ title }}</h2>
+
+    <ul id="topic-index">
+        <li>
+            <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
+                all
+            </a>
+        </li>
+        {% for tag in collections.tags %}
+            {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+        <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <table id="post-index">
+        <thead>
+            <th>Year</th>
+            <th>Post</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+                {% for post in collections.postsByYear %}
+                    <tr onclick="window.location='{{post.url}}';">
+                        {% if post.year %}
+                            <td class="post-year" rowspan="{{post.rowspan}}">
+                                {{post.year}}
+                            </td>
+                        {% endif %}
+                        <td class="post-title">
+                            {{ post.data.title }}
+                        </td>
+                        <td class="post-date">
+                            {{ post.date | formatDate("MM/DD")}}
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+</article>

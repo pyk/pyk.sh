@@ -7,6 +7,14 @@ body {
     @apply text-light-label-default;
 }
 
+a {
+    @apply text-light-label-secondary hover:text-light-label-default;
+}
+
+a[aria-current="page"] {
+    @apply text-light-label-default;
+}
+
 /* Container */
 #container {
     @apply container mx-auto max-w-[960px];
@@ -43,13 +51,13 @@ nav > ul {
 
 nav > ul > li > a {
     @apply text-sm leading-4;
-    @apply text-light-label-secondary hover:text-light-label-default;
 }
 
 /* Article */
 article {
     @apply sm:basis-10/12 md:basis-8/12;
     @apply mt-12 sm:mt-0;
+    @apply max-w-xl;
 }
 
 article > h2 {
@@ -68,4 +76,64 @@ article > time {
 
 article > p {
     @apply text-sm sm:text-base my-4 sm:my-6;
+}
+
+/* Topic index */
+#topic-index {
+    @apply flex flex-row;
+    @apply text-sm sm:text-base text-light-label-secondary;
+    @apply text-light-label-secondary;
+    @apply divide-x;
+}
+
+#topic-index > li:first-child {
+    @apply pl-0;
+}
+
+#topic-index > li {
+    @apply leading-4 px-4;
+}
+
+/* Post index */
+#post-index {
+    @apply w-full;
+    @apply mt-4;
+    @apply text-base leading-7;
+    @apply border-collapse;
+}
+
+#post-index > tbody > tr {
+    @apply cursor-pointer;
+}
+
+#post-index > thead {
+    @apply hidden;
+}
+
+.post-date {
+    @apply text-right;
+}
+.post-year,
+.post-date {
+    @apply text-sm align-top leading-7  text-light-label-secondary;
+}
+
+.post-year {
+    @apply text-left;
+    @apply w-[64px];
+}
+
+#post-index > tbody:hover > tr {
+    opacity: 0.2;
+}
+
+#post-index > tbody > tr:hover {
+    opacity: 1;
+}
+
+.post-year,
+.post-title,
+.post-date {
+    /* @apply border-y border-solid border-light-separator-default; */
+    @apply py-1;
 }
