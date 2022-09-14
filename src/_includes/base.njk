@@ -2,21 +2,11 @@
 <html lang="en">
 
 <head>
+    <!-- HTML meta tags -->
+    <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{ title }}</title>
-
     <meta name="description" content="{{ description }}">
-
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="icon.png">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary"></meta>
@@ -26,7 +16,17 @@
     <meta name="twitter:description" content="{{ description }}"></meta>
     <meta name="twitter:image" content="https://pyk.sh/pyk.jpeg"></meta>
     <meta name="twitter:image:alt" content="Profile picture of pyk"></meta>
+    <meta property="twitter:domain" content="pyk.sh">
+    <meta property="twitter:url" content="https://pyk.sh{{ page.url }}">
 
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://pyk.sh/{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="https://pyk.sh/pyk.jpeg">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
 
     <!-- stylesheet -->
     <link rel="stylesheet" href="/style.css?v={% etag %}"/>
