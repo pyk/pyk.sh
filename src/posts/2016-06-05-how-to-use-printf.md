@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: "How to use printf"
+title: "How to use printf Without Shooting Yourself in the Foot"
 description: Test
 date: 2016-06-05
 permalink: /how-to-use-printf/
@@ -12,7 +12,7 @@ tags:
 `printf` prototype is defined like below:
 
 ```c
-int printf(const char \*format, ...);
+int printf(const char *format, ...);
 ```
 
 The first argument `const char *format` is a format string that contains
@@ -25,16 +25,19 @@ error:
 ```c
 #include <stdio.h>
 
-int main() {
+int
+main()
+{
     char *a = "string";
     printf(a);
 }
 ```
 
-```sh
+```shell
 # gcc version 4.9.2
-
-gcc printf_unsafe.c ./a.out string
+gcc printf_unsafe.c
+./a.out
+string
 ```
 
 The code above seems safe, but it give us unpredictable consequences if `a`
@@ -44,17 +47,18 @@ that it will print a private value from memory.
 ```c
 #include <stdio.h>
 
-int main() {
+int
+main()
+{
     char *a = "string %d";
     printf(a);
-
 }
 ```
 
-```sh
+```shell
 # gcc version 4.9.2
-
-gcc printf_unsafe.c ./a.out
+gcc printf_unsafe.c
+./a.out
 string 927983944
 ```
 
@@ -64,7 +68,9 @@ explicitly:
 ```c
 #include <stdio.h>
 
-int main() {
+int
+main()
+{
     char *a = "string %d";
     printf("%s", a);
 }
@@ -72,17 +78,16 @@ int main() {
 
 ```c
 # gcc version 4.9.2
-
-gcc printf_safe.c ./a.out
+gcc printf_safe.c
+./a.out
 string %d
 ```
 
 Compiling the unsafe code with `-Wformat=2 -Werror` flag will prevent you from
 using `printf` incorrectly at runtime.
 
-```sh
+```shell
 # gcc version 4.9.2
-
 gcc printf_unsafe.c -Wformat=2 -Werror
 printf_unsafe.c: In function ‘main’:
 printf_unsafe.c:7:2: error: format not a string literal and no format arguments [-Werror=format-security]

@@ -1,4 +1,5 @@
 const dayjs = require("dayjs");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
     // Copy all files inside public directory
@@ -71,6 +72,11 @@ module.exports = function (eleventyConfig) {
         });
         return postsByYear;
     });
+
+    /*************************************************************************
+     * Plugins
+     ************************************************************************/
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     return {
         dir: {

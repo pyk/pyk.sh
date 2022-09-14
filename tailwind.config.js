@@ -7,6 +7,7 @@ module.exports = {
                 light: {
                     bg: {
                         default: "#FFFFFF",
+                        secondary: "#F2F2F7",
                     },
                     label: {
                         default: "#000000",
