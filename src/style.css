@@ -137,3 +137,10 @@ article > p {
     /* @apply border-y border-solid border-light-separator-default; */
     @apply py-1;
 }
+
+/* Footer */
+footer {
+    @apply container mx-auto max-w-[960px];
+    @apply px-6 py-6 sm:mt-16;
+    @apply text-sm text-light-label-secondary text-center;
+}
