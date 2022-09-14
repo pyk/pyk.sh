@@ -14,12 +14,4 @@ professional financial investment advice. Always do your own research.
 
 ### Summary
 
-Last month I worked on a side project internally during Vercel’s Design Your
-Friday1, to improve the data visualization of our Analytics2 charts.
-Previously, all the data points were visualized by simply connecting them as a
-line:
-
-Last month I worked on a side project internally during Vercel’s Design Your
-Friday1, to improve the data visualization of our Analytics2 charts.
-Previously, all the data points were visualized by simply connecting them as a
-line:
+_Comeback Later_
