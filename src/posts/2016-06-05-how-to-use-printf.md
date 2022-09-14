@@ -3,7 +3,8 @@ layout: post.njk
 title: |
     How to use printf Without Shooting Yourself in the Foot
 description: |
-    Using printf is very dangerous if you doesn't know what are you doing
+    printf is essential functions for every c programmers. You need to learn
+    the basic behavior of printf in order to use it safely.
 date: 2016-06-05
 permalink: /how-to-use-printf/
 tags:
