@@ -78,7 +78,7 @@ main()
 }
 ```
 
-```c
+```shell
 # gcc version 4.9.2
 gcc printf_safe.c
 ./a.out
