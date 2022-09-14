@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply font-inter;
+}
+
+/* Container */
+#container {
+    @apply container mx-auto max-w-[960px];
+    @apply px-6 mt-16;
+    @apply flex flex-col sm:flex-row;
+}
+
+/* Header */
+#container > header {
+    @apply space-y-4;
+}
+
+/* Profile */
+#container > header > #profile {
+    @apply flex flex-row sm:flex-col;
+    @apply space-x-2 sm:space-x-0 sm:space-y-2;
+}
+
+#container > header > #profile > img {
+    @apply w-[24px] sm:w-[64px];
+}
+
+#container > header > #profile > span {
+    @apply text-base font-semibold;
+}
+
+/* Navigation */
+#container > header > nav > ul {
+    @apply flex flex-row sm:flex-col;
+    @apply space-x-4 sm:space-x-0 sm:space-y-2;
+    @apply leading-4;
+}
+
+#container > header > nav > ul > li > a {
+    @apply text-sm leading-4;
+    @apply text-light-label-secondary hover:text-light-label-default;
+}
