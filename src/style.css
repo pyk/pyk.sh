@@ -94,12 +94,17 @@ article > p {
     @apply my-4 sm:my-6;
 }
 
-article > p > code {
+article > p > code,
+article > ol > li > code {
     @apply text-xs sm:text-sm;
     @apply leading-5 sm:leading-6;
     @apply py-0.5 px-1;
     @apply bg-light-bg-secondary;
     @apply rounded;
+}
+
+ol {
+    @apply list-decimal pl-4;
 }
 
 article > pre {
