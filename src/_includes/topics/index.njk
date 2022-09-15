@@ -7,20 +7,24 @@ layout: base.njk
 
     <table id="post-index">
         <thead>
-            <th>Topic</th>
             <th>Post Count</th>
+            <th>Topic</th>
         </thead>
         <tbody>
             {% for tag in collections.tags | sort %}
                 {% set tagUrl %}/topics/{{ tag | slugify }}/{% endset %}
                 <tr>
+                    <td class="post-year">
+                        {% if collections[tag].length > 1 %}
+                            {{ collections[tag].length }} posts
+                        {% else %}
+                            {{ collections[tag].length }} post
+                        {% endif %}
+                    </td>
                     <td class="post-title">
                         <a href="{{ tagUrl }}">
                             {{ tag }}
                         </a>
-                    </td>
-                    <td class="post-date">
-                        {{ collections[tag].length }} posts
                     </td>
                 </tr>
             {% endfor %}
