@@ -11,6 +11,7 @@ date: 2014-02-11
 tags:
     - post
     - rails
+permalink: /rails-validation-helper/
 ---
 
 lets assume we have `people` table with schema like this
