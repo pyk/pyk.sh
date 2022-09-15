@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+
+<article>
+    <h1>{{ title }}</h1>
+
+    <table id="post-index">
+        <thead>
+            <th>Topic</th>
+            <th>Post Count</th>
+        </thead>
+        <tbody>
+            {% for tag in collections.tags | sort %}
+                {% set tagUrl %}/topics/{{ tag | slugify }}/{% endset %}
+                <tr>
+                    <td class="post-title">
+                        <a href="{{ tagUrl }}">
+                            {{ tag }}
+                        </a>
+                    </td>
+                    <td class="post-date">
+                        {{ collections[tag].length }} posts
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</article>

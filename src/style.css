@@ -54,12 +54,12 @@ header > #profile > span {
 
 nav > ul {
     @apply flex flex-row sm:flex-col;
-    @apply space-x-4 sm:space-x-0 sm:space-y-2;
+    @apply space-x-4 sm:space-x-0 sm:space-y-4;
     @apply leading-4;
 }
 
 nav > ul > li > a {
-    @apply text-sm leading-4;
+    @apply text-base leading-4;
     @apply text-light-label-default no-underline hover:text-light-blue hover:underline;
 }
 
@@ -73,6 +73,7 @@ article {
     @apply max-w-xl;
 }
 
+article > h1,
 article > h2 {
     @apply text-xl sm:text-2xl font-semibold;
     @apply mb-2 sm:mb-4;
@@ -137,12 +138,8 @@ article > pre > code {
 #post-index {
     @apply w-full;
     @apply mt-4;
-    @apply text-base leading-7;
+    @apply text-sm sm:text-base leading-5;
     @apply border-collapse;
-}
-
-#post-index > tbody > tr {
-    @apply cursor-pointer;
 }
 
 #post-index > thead {
@@ -159,7 +156,13 @@ article > pre > code {
 
 .post-year {
     @apply text-left;
-    @apply w-[64px];
+    @apply w-[44px] sm:w-[64px];
+}
+
+/**
+
+#post-index > tbody > tr {
+    @apply cursor-pointer;
 }
 
 #post-index > tbody:hover > tr {
@@ -169,6 +172,7 @@ article > pre > code {
 #post-index > tbody > tr:hover {
     opacity: 1;
 }
+*/
 
 .post-year,
 .post-title,
