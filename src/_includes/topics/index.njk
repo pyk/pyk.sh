@@ -5,30 +5,22 @@ layout: base.njk
 <article>
     <h1>{{ title }}</h1>
 
-    <table id="post-index">
-        <thead>
-            <th>Post Count</th>
-            <th>Topic</th>
-        </thead>
-        <tbody>
-            {% for tag in collections.tags | sort %}
-                {% set tagUrl %}/topics/{{ tag | slugify }}/{% endset %}
-                <tr>
-                    <td class="post-year">
-                        {% if collections[tag].length > 1 %}
-                            {{ collections[tag].length }} posts
-                        {% else %}
-                            {{ collections[tag].length }} post
-                        {% endif %}
-                    </td>
-                    <td class="post-title">
-                        <a href="{{ tagUrl }}">
-                            {{ tag }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <ol class="list-decimal pl-4 space-y-2">
+        {% for tag in collections.tags | sort %}
+            {% set tagUrl %}/topics/{{ tag | slugify }}/{% endset %}
+            <li>
+                <a href="{{ tagUrl }}">
+                    {{ tag }}
+                </a>
+                <span>
+                    {% if collections[tag].length > 1 %}
+                        ({{ collections[tag].length }} posts)
+                    {% else %}
+                        ({{ collections[tag].length }} post)
+                    {% endif %}
+                </span>
+            </li>
+        {% endfor %}
+    </ol>
 
 </article>
