@@ -9,7 +9,11 @@ body {
 }
 
 a {
-    @apply text-light-blue underline;
+    @apply text-light-blue;
+}
+
+a:hover {
+    @apply underline;
 }
 
 a[aria-current="page"] {
@@ -22,7 +26,7 @@ a[aria-current="page"] {
 
 #container {
     @apply container mx-auto max-w-[960px];
-    @apply px-6 mt-6 sm:mt-16;
+    @apply px-6;
     @apply flex flex-col sm:flex-row;
 }
 
@@ -33,6 +37,8 @@ a[aria-current="page"] {
 header {
     @apply space-y-4;
     @apply sm:basis-2/12;
+    @apply sm:sticky sm:top-0 sm:h-screen;
+    @apply pt-6 sm:pt-16;
 }
 
 header > #profile {
@@ -69,7 +75,7 @@ nav > ul > li > a {
 
 article {
     @apply sm:basis-10/12 md:basis-8/12;
-    @apply mt-12 sm:mt-0;
+    @apply mt-12 sm:mt-16;
     @apply max-w-xl;
 }
 
@@ -141,49 +147,21 @@ article > pre > code {
  ****************************************************************************/
 
 #post-index {
-    @apply w-full;
-    @apply mt-4;
-    @apply text-sm sm:text-base leading-5;
-    @apply border-collapse;
+    @apply w-full mt-4 pl-0;
+    @apply text-light-label-secondary;
+    @apply space-y-6;
 }
 
-#post-index > thead {
-    @apply hidden;
+.post-link {
+    @apply flex flex-col space-y-1;
 }
 
-.post-date {
-    @apply text-right;
-}
-.post-year,
-.post-date {
-    @apply text-sm align-top leading-7  text-light-label-secondary;
+.post-link > a {
+    @apply text-base;
 }
 
-.post-year {
-    @apply text-left;
-    @apply w-[44px] sm:w-[64px];
-}
-
-/**
-
-#post-index > tbody > tr {
-    @apply cursor-pointer;
-}
-
-#post-index > tbody:hover > tr {
-    opacity: 0.2;
-}
-
-#post-index > tbody > tr:hover {
-    opacity: 1;
-}
-*/
-
-.post-year,
-.post-title,
-.post-date {
-    /* @apply border-y border-solid border-light-separator-default; */
-    @apply py-1;
+.post-link > span {
+    @apply text-sm leading-4;
 }
 
 /*****************************************************************************
