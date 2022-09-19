@@ -4,10 +4,12 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for page in collections.all %}
-  <url>
-    <loc>https://pyk.sh{{ page.url }}</loc>
-    <lastmod>{{ page.date | formatDate("YYYY-MM-DD") }}</lastmod>
-  </url>
-{%- endfor %}
+{% for page in collections.all %}
+    {% if page.url not in ["/topics/tags/", "/topics/postsbyyear/"] %}
+    <url>
+        <loc>https://pyk.sh{{ page.url }}</loc>
+        <lastmod>{{ page.date | formatDate("YYYY-MM-DD") }}</lastmod>
+    </url>
+    {% endif %}
+{% endfor %}
 </urlset>
