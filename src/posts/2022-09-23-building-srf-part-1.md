@@ -54,3 +54,85 @@ example-app/
 ├─ pages/
 │  ├─ page.tsx
 ```
+
+We are going to try to use
+[esbuild](https://esbuild.github.io/getting-started/#your-first-bundle) to do
+this.
+
+Let's start from the basic implementation:
+
+```typescript
+// build.ts
+import { build } from "esbuild";
+
+async function main() {
+    await build({
+        entryPoints: ["pages/page.tsx"],
+        bundle: true,
+        outfile: ".srf/worker.js",
+    });
+}
+
+main();
+```
+
+This build script will generate the following file:
+
+```js
+// worker.js
+"use strict";
+(() => {
+    // pages/page.tsx
+    function RootPage() {
+        return /* @__PURE__ */ React.createElement(
+            "html",
+            null,
+            /* @__PURE__ */ React.createElement(
+                "head",
+                null,
+                /* @__PURE__ */ React.createElement("title", null, "Edger POC")
+            ),
+            /* @__PURE__ */ React.createElement(
+                "body",
+                null,
+                /* @__PURE__ */ React.createElement(
+                    "header",
+                    null,
+                    "This is header"
+                ),
+                /* @__PURE__ */ React.createElement(
+                    "main",
+                    null,
+                    "This is main"
+                ),
+                /* @__PURE__ */ React.createElement(
+                    "footer",
+                    null,
+                    "This is footer"
+                )
+            )
+        );
+    }
+})();
+```
+
+as you can see esbuild can load and transform `tsx` file to plain javascript
+without hassle.
+
+Now we have another problem, the Cloudflare Worker is expected to have the
+following javascript file:
+
+```js
+export default {
+    async fetch(request) {
+        return new Response("Hello World!");
+    },
+};
+```
+
+how do we combine the `pages/page.tsx` and the file above?
+
+Do we need to create new file? can we create new typescript file
+programmatically?
+
+_To be continue_
