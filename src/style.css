@@ -59,6 +59,7 @@ header > #profile > span {
  ****************************************************************************/
 
 nav > ul {
+    @apply list-none pl-0;
     @apply flex flex-row sm:flex-col;
     @apply space-x-4 sm:space-x-0 sm:space-y-4;
     @apply leading-4;
@@ -111,6 +112,10 @@ article > ol > li > code {
 
 ol {
     @apply list-decimal pl-4;
+}
+
+ul {
+    @apply list-disc pl-4;
 }
 
 article > pre {
