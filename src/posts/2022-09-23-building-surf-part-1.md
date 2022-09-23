@@ -1,19 +1,19 @@
 ---
 layout: post.njk
 title: |
-    Building SRF, Part 1
+    Building Surf, Part 1
 description: |
-    SRF is a Speedy React Framework
+    Surf is a Speedy React Framework
 date: 2022-09-23
 tags:
     - post
-    - srf
-permalink: /building-srf-part-1/
+    - surf
+permalink: /building-surf-part-1/
 ---
 
 Ok, I'm sick of using slow and bloated React web framework. I want to build
 react-based framework that use all modern features of react. I will called it
-**SRF**, a speedy react framework.
+**Surf**, a speedy react framework.
 
 Here is the basic features of **SRF**:
 
@@ -30,20 +30,62 @@ Here is the basic features of **SRF**:
 I want to do the following:
 
 1. Create new file `pages/page.tsx`
-2. Run `srf dev` for local development
-3. Run `srf deploy` to deploy my react apps
+2. Run `surf dev` for local development
+3. Run `surf deploy` to deploy my react apps
 
 ### The Basic
 
-Let's start from the basic first and focus deployment on Cloudflare Workers.
-Once we implement 2 deployments we will get the pattern and we can generalize
-the process.
+Let's start from the basic first, shall we?
 
-In order to deploy to cloudflare workers, we need once compiled JavaScript file
-and deploy it using the following command:
+We need to know how to deploy Cloudlfare Workers, How to render React inside
+Cloudflare Worker and so on.
+
+**How to deploy Cloudflare Workers?**
+
+In order to deploy serverless app to Cloudflare workers, we need to write
+JavaScript file that response to some event, in this case a HTTP Request.
+
+Suppose we have the following `index.js` file:
+
+```js
+// index.js
+export default {
+    async fetch(request) {
+        return new Response("Hello World!");
+    },
+};
+```
+
+In order to deploy the this code to Clouflare Worker, we need to install
+[wrangler](https://github.com/cloudflare/wrangler2) and use the following
+command:
 
 ```shell
 wrangler publish index.js --compatibility-date 2022-09-23 --name=cf-worker-rsc
+```
+
+For now we will focus to build Surf to be deployable on Cloudflare Workers.
+Once we implement 2 deployments we will get the pattern and we can generalize
+the process for all serverless or edge-function platforms.
+
+Next basic question is, how to render React inside Cloudflare Workers?
+
+**How to render React in Cloudflare Workers?**
+
+Let's start by installing the dependencies: React and React DOM.
+
+```shell
+pnpm add --save-exact react@latest react-dom@latest
+```
+
+Once the dependencies installed, we can use
+[renderToReadableStream](https://reactjs.org/docs/react-dom-server.html#rendertoreadablestream)
+to render our react app.
+
+Let's write some proof-of-concept:
+
+```typescript
+
 ```
 
 So, the first problem is how we convert the following structure into one giant
