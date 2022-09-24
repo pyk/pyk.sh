@@ -95,7 +95,7 @@ article > time {
     @apply text-sm sm:text-base text-light-label-secondary;
 }
 
-article > p {
+article p {
     @apply text-sm sm:text-base;
     @apply leading-5 sm:leading-6;
     @apply my-4 sm:my-6;
@@ -128,6 +128,10 @@ article > pre,
 article > pre > code {
     @apply selection:text-white selection:bg-light-blue !important;
     @apply text-xs sm:text-sm font-mono !important;
+}
+
+article > blockquote {
+    @apply border-l-2 border-light-separator-default pl-4 text-light-label-secondary;
 }
 
 /*****************************************************************************
