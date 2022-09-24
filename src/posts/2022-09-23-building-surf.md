@@ -10,7 +10,7 @@ date: 2022-09-23
 tags:
     - post
     - surf
-permalink: /building-surf-part-1/
+permalink: /building-surf/
 ---
 
 Ok, I'm sick of using slow and bloated React web framework. I want to build
