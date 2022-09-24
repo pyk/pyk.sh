@@ -112,10 +112,12 @@ article > ol > li > code {
 
 ol {
     @apply list-decimal pl-4;
+    @apply text-sm sm:text-base;
 }
 
 ul {
     @apply list-disc pl-4;
+    @apply text-sm sm:text-base;
 }
 
 article > pre {
