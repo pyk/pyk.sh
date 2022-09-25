@@ -193,9 +193,30 @@ wrangler publish .surf/worker.js --compatibilty-date 2022-09-23 --compatibility-
 and viola! we have deployed our first server-side rendered React app to
 cloudflare workers.
 
+**How to Render component with Dynamic Imports?**
+
+What is dynamic imports?
+
+> Dynamic import expressions are a new feature and part of ECMAScript that
+> allows users to asynchronously request a module at any arbitrary point in
+> your program. This means that you can conditionally and lazily import other
+> modules and libraries.
+>
+> Source:
+> [TypeScript Docs](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-4.html#dynamic-import-expressions)
+
+Ok so, if we use dynamic imports it's mean that the module is not loaded until
+we need it. This is for code-splitting. hmmmm I have an idea, let's use dynamic
+imports to differentiate between client and server bundling!
+
+My first goal was to dynamicaly load defined routes inside `pages/` directory
+but I think we don't need the dynamic imports.
+
+**How to Combine `pages/` directory to one giant `entry.server.tsx` file?**
+
 Next steps:
 
-1. How to use dynamic imports in our `entry.server.tsx`?
+1. ~~How to use dynamic imports in our `entry.server.tsx`?~~
 2. How to get convert file-system Routing to Worker routes?
 3. How to integrate Chakra UI?
 

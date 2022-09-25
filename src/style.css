@@ -91,6 +91,14 @@ article > h3 {
     @apply mt-8 sm:mt-12;
 }
 
+article > h3 code {
+    @apply text-lg sm:text-xl;
+    @apply leading-5 sm:leading-6;
+    @apply py-0.5 px-1;
+    @apply bg-light-bg-secondary;
+    @apply rounded;
+}
+
 article > time {
     @apply text-sm sm:text-base text-light-label-secondary;
 }
@@ -101,7 +109,7 @@ article p {
     @apply my-4 sm:my-6;
 }
 
-article > p > code,
+article > p code,
 article > ol > li > code {
     @apply text-xs sm:text-sm;
     @apply leading-5 sm:leading-6;
