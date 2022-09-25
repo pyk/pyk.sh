@@ -110,7 +110,8 @@ article p {
 }
 
 article > p code,
-article > ol > li > code {
+article > ol > li > code,
+blockquote > p code {
     @apply text-xs sm:text-sm;
     @apply leading-5 sm:leading-6;
     @apply py-0.5 px-1;
@@ -140,6 +141,24 @@ article > pre > code {
 
 article > blockquote {
     @apply border-l-2 border-light-separator-default pl-4 text-light-label-secondary;
+}
+
+article table {
+    @apply table table-auto;
+    @apply w-full text-sm sm:text-base text-left;
+}
+
+table > thead {
+    @apply text-xs text-gray-700 uppercase bg-gray-50;
+}
+
+th,
+td {
+    @apply py-3 px-6;
+}
+
+tbody > tr {
+    @apply bg-white border-b hover:bg-gray-50;
 }
 
 /*****************************************************************************
