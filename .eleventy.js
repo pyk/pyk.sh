@@ -1,6 +1,12 @@
 const dayjs = require("dayjs");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// Markdowns
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItAttrs = require("markdown-it-attrs");
+const markdownItTOC = require("markdown-it-toc-done-right");
+
 module.exports = function (eleventyConfig) {
     // Copy all files inside public directory
     eleventyConfig.addPassthroughCopy({ public: "/" });
@@ -77,6 +83,21 @@ module.exports = function (eleventyConfig) {
      * Plugins
      ************************************************************************/
     eleventyConfig.addPlugin(syntaxHighlight);
+
+    /*************************************************************************
+     * Libraries
+     ************************************************************************/
+    eleventyConfig.setLibrary(
+        "md",
+        markdownIt()
+            .use(markdownItAnchor, {
+                permalink: true,
+                permalinkAfter: true,
+                permalinkSymbol: "#",
+            })
+            .use(markdownItAttrs)
+            .use(markdownItTOC)
+    );
 
     return {
         dir: {
