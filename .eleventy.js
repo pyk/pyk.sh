@@ -87,9 +87,14 @@ module.exports = function (eleventyConfig) {
     /*************************************************************************
      * Libraries
      ************************************************************************/
+    const markdownItOptions = {
+        html: true,
+        breaks: true,
+        linkify: true,
+    };
     eleventyConfig.setLibrary(
         "md",
-        markdownIt()
+        markdownIt(markdownItOptions)
             .use(markdownItAnchor, {
                 permalink: true,
                 permalinkAfter: true,
