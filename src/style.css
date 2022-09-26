@@ -121,10 +121,12 @@ main {
 
 .project-item img {
     @apply w-[48px] h-[48px];
+    @apply rounded-2xl;
 }
 
 .project-item-info h3 {
     @apply text-lg font-medium text-label-dark-primary;
+    @apply tracking-wide;
 }
 
 .project-item-info p {
