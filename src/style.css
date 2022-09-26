@@ -131,6 +131,15 @@ main {
     @apply text-base text-label-dark-secondary;
 }
 
+/* Opacity hover */
+#projects > ul:hover > li {
+    @apply opacity-50;
+}
+
+#projects > ul > li:hover {
+    @apply opacity-100 !important;
+}
+
 /*****************************************************************************
  * Article
  ****************************************************************************/
