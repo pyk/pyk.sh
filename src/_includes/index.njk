@@ -2,26 +2,96 @@
 layout: base.njk
 ---
 
-<article>
-    <h1>{{ title }}</h1>
+<main>
+    <div id="hero">
+        <div id="profile">
+            <img
+                src="/pyk.png"
+                alt="pyk's profile picture"
+                width="64px"
+                height="64px"
+            >
+            <div id="name-role">
+                <h1>{{ title }}</h1>
+                <p>Co-founder of <strong>Risedle</strong></p>
+            </div>
+        </div>
+        <div id="about">
+            <p>
+                Helping Web3 investors access decentralized finance and gains
+                a sustainable returns. Writing about web & smart contract
+                development.
+            </p>
+        </div>
+    </div>
 
-    <ol id="post-index">
-        {% for post in collections.postsByYear %}
-            <li class="post-link">
-                <a href="{{ post.url }}">
-                    {{ post.data.title }}
+    <div id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                <a class="project-item" href="#">
+                    <img
+                    class="project-item-logo"
+                    src="/pyk.png"
+                    alt="pyk's profile picture"
+                    width="48px"
+                    height="48px"
+                    >
+                    <div class="project-item-info">
+                        <h3>Risedle Interface</h3>
+                        <p>Risedle's Web3 App</p>
+
+                    </div>
                 </a>
-                <span>
-                    <time datetime="{{ post.date | formatDate("YYYY-MM-DD") }}">{{ post.date | formatDate("ddd MMM D YYYY") }}</time>
-                    in
-                    {% for tag in post.data.tags | filterTags %}
-                        {% set tagUrl %}/topics/{{ tag | slugify }}/{% endset %}
-                        <a href="{{ tagUrl | url }}">{{ tag }}</a>
-                    {% endfor %}
-                </span>
             </li>
-        {% endfor %}
-    </ol>
+            <li>
+                <a class="project-item" href="#">
+                    <img
+                    class="project-item-logo"
+                    src="/pyk.png"
+                    alt="pyk's profile picture"
+                    width="48px"
+                    height="48px"
+                    >
+                    <div class="project-item-info">
+                        <h3>Risedle Interface</h3>
+                        <p>Risedle's Web3 App</p>
 
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="project-item" href="#">
+                    <img
+                    class="project-item-logo"
+                    src="/pyk.png"
+                    alt="pyk's profile picture"
+                    width="48px"
+                    height="48px"
+                    >
+                    <div class="project-item-info">
+                        <h3>Risedle Interface</h3>
+                        <p>Risedle's Web3 App</p>
 
-</article>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="project-item" href="#">
+                    <img
+                    class="project-item-logo"
+                    src="/pyk.png"
+                    alt="pyk's profile picture"
+                    width="48px"
+                    height="48px"
+                    >
+                    <div class="project-item-info">
+                        <h3>Risedle Interface</h3>
+                        <p>Risedle's Web3 App</p>
+
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</main>

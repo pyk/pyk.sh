@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ description }}">
+    <meta name="robots" content="follow, index">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
@@ -51,54 +52,51 @@
 </head>
 
 <body>
-    <div id="container">
-        <header>
-            <div id="profile">
-                <img
-                    src="/pyk.png"
-                    alt="pyk's profile picture"
-                    width="64px"
-                    height="64px"
-                />
-                <span>pyk</span>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
-                            index
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/topics/" {% if page.url == "/topics/" %} aria-current="page" {% endif %}>
-                            topics
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/pyk" target="_blank">
-                            github
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/sepyke" target="_blank">
-                            twitter
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:gm@pyk.sh">
-                            gm@pyk.sh
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorials/" {% if page.url == "/tutorials/" %} aria-current="page" {% endif %}>
+                        Tutorials
+                    </a>
+                </li>
+                <li>
+                    <a href="/faq/" {% if page.url == "/faq/" %} aria-current="page" {% endif %}>
+                        Dev FAQ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        {{ content | safe }}
-
-    </div>
+    {{ content | safe }}
 
     <footer>
-		Copyright &copy; 2022 <a href="/">pyk</a>. All rights reserved.
+        <nav>
+            <ul>
+                <li>
+                    <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorials/" {% if page.url == "/tutorials/" %} aria-current="page" {% endif %}>
+                        Tutorials
+                    </a>
+                </li>
+                <li>
+                    <a href="/faq/" {% if page.url == "/faq/" %} aria-current="page" {% endif %}>
+                        Dev FAQ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     </footer>
 </body>
 

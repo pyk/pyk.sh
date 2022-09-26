@@ -4,6 +4,19 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                bg: {
+                    dark: {
+                        base: {
+                            primary: "#000000",
+                        },
+                    },
+                },
+                label: {
+                    dark: {
+                        primary: "#FFFFFF",
+                        secondary: "rgba(235,235,245,0.6)",
+                    },
+                },
                 light: {
                     bg: {
                         default: "#FFFFFF",

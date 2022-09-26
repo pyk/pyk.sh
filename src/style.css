@@ -4,8 +4,7 @@
 
 body {
     @apply font-sans;
-    @apply text-light-label-default;
-    @apply selection:text-white selection:bg-light-blue;
+    @apply bg-bg-dark-base-primary text-label-dark-primary;
 }
 
 a {
@@ -21,53 +20,111 @@ a[aria-current="page"] {
 }
 
 /*****************************************************************************
- * Container
- ****************************************************************************/
-
-#container {
-    @apply container mx-auto max-w-[960px];
-    @apply px-6;
-    @apply flex flex-col sm:flex-row;
-}
-
-/*****************************************************************************
  * Header
  ****************************************************************************/
 
 header {
-    @apply space-y-4;
-    @apply sm:basis-2/12;
-    @apply sm:sticky sm:top-0 sm:h-screen;
-    @apply pt-6 sm:pt-16;
-}
-
-header > #profile {
-    @apply flex flex-row sm:flex-col;
-    @apply space-x-2 sm:space-x-0 sm:space-y-2;
-}
-
-header > #profile > img {
-    @apply w-[24px] sm:w-[64px];
-}
-
-header > #profile > span {
-    @apply text-base font-semibold;
+    @apply max-w-2xl mx-auto;
+    @apply px-6 py-4;
 }
 
 /*****************************************************************************
  * Navigation
  ****************************************************************************/
 
-nav > ul {
+nav ul {
     @apply list-none pl-0;
-    @apply flex flex-row sm:flex-col;
-    @apply space-x-4 sm:space-x-0 sm:space-y-4;
-    @apply leading-4;
+    @apply flex flex-row;
+    @apply space-x-6;
 }
 
-nav > ul > li > a {
-    @apply text-base leading-4;
-    @apply text-light-label-default no-underline hover:text-light-blue hover:underline;
+nav ul li a {
+    @apply text-sm sm:text-base;
+    @apply font-medium;
+    @apply text-label-dark-secondary;
+}
+
+nav ul li a:hover,
+nav ul li a[aria-current="page"] {
+    @apply text-label-dark-primary no-underline;
+}
+
+/*****************************************************************************
+ * Main
+ ****************************************************************************/
+
+main {
+    @apply max-w-2xl mx-auto;
+    @apply px-6 pt-8;
+}
+
+/*****************************************************************************
+ * Hero
+ ****************************************************************************/
+
+#profile {
+    @apply flex flex-row;
+    @apply space-x-4;
+}
+
+#hero {
+    @apply space-y-6;
+}
+
+#name-role {
+    @apply flex flex-col;
+    @apply space-y-1;
+}
+
+#name-role h1 {
+    @apply font-medium text-2xl;
+}
+
+#name-role p {
+    @apply text-base text-label-dark-secondary;
+}
+
+#about p {
+    @apply text-xl tracking-wide;
+}
+
+/*****************************************************************************
+ * Projects
+ ****************************************************************************/
+#projects {
+    @apply pt-8;
+    @apply flex flex-col;
+    @apply space-y-4;
+}
+
+#projects h2 {
+    @apply font-medium text-2xl;
+}
+
+#projects ul {
+    @apply p-0 list-none;
+    @apply grid grid-rows-2 grid-flow-col gap-4;
+}
+
+.project-item {
+    @apply flex flex-row;
+    @apply space-x-4;
+}
+
+.project-item:hover {
+    @apply no-underline;
+}
+
+.project-item img {
+    @apply w-[48px] h-[48px];
+}
+
+.project-item-info h3 {
+    @apply text-lg font-medium text-label-dark-primary;
+}
+
+.project-item-info p {
+    @apply text-base text-label-dark-secondary;
 }
 
 /*****************************************************************************

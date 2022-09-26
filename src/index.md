@@ -1,5 +1,7 @@
 ---
 layout: index.njk
-title: pyk's personal blog
-description: pyk is a co-founder of Risedle
+title: pyk
+description:
+    Helping Web3 investors access decentralized finance and gains a sustainable
+    returns. Writing about web & smart contract development.
 ---
