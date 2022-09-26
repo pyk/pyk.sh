@@ -15,7 +15,7 @@ tags:
 permalink: /create-shareable-prettier-configuration/
 ---
 
-**Note**: Feel free to access the [source code][3] on GitHub directly.
+**Note**: Full source code is available on [github][3].
 
 In this post, I will show you how to create a shareable or reusable prettier
 configuration that you can use on multiple projects without need to copy-paste
