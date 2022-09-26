@@ -28,9 +28,34 @@ ${toc}
 
 Feel free to skip (1), (2) and (3) if you are comfortable with [prettier][2].
 
-### What is prettier?
+### What is Prettier?
 
-### What is prettier config?
+[Prettier][2] is a tool used by developers to check and fix the format of their
+code. It is an essential tool that you must use to write readable code with
+consistent formatting.
+
+Prettier is the most popular code formatter tool and supported by wide-variety
+of code editors.
+
+### What is Prettier configuration?
+
+Prettier configuration is a list of rules that you can set in to get custom
+formatting.
+
+These are most widely used the rules that you can customize:
+
+| Option           | Description                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------- |
+| `printWidth`     | Specify the line length that the printer will wrap on.                                      |
+| `tabWidth`       | Specify the number of spaces per indentation-level.                                         |
+| `useTabs`        | Indent lines with tabs instead of spaces.                                                   |
+| `semi`           | Print semicolons at the ends of statements.                                                 |
+| `singleQuote`    | Use single quotes instead of double quotes.                                                 |
+| `trailingComma`  | Print trailing commas wherever possible in multi-line comma-separated syntactic structures. |
+| `proseWrap`      | Wrap prose based on `printWidth`                                                            |
+| `bracketSpacing` | Print spaces between brackets in object literals.                                           |
+
+See full available options [here][4]
 
 ### How to customize prettier config?
 
@@ -41,3 +66,4 @@ Feel free to skip (1), (2) and (3) if you are comfortable with [prettier][2].
 [1]: /topics/how-to/
 [2]: /what-is-prettier/
 [3]: https://github.com/pyk/prettier-config
+[4]: https://prettier.io/docs/en/options.html
