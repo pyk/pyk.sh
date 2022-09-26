@@ -265,9 +265,12 @@ tbody > tr {
  ****************************************************************************/
 
 footer {
-    @apply container mx-auto max-w-[960px];
-    @apply px-6 py-6 sm:mt-16;
-    @apply text-sm text-light-label-secondary text-center;
+    @apply max-w-2xl mx-auto;
+    @apply px-6 pt-12 pb-12;
+}
+
+footer nav ul {
+    @apply flex flex-col sm:flex-row space-y-4 space-x-0 sm:space-x-4 sm:space-y-0;
 }
 
 /*****************************************************************************
