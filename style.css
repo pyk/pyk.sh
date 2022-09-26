@@ -101,6 +101,7 @@ main {
     @apply space-y-4;
 }
 
+#projects h1,
 #projects h2 {
     @apply font-medium text-2xl;
 }
