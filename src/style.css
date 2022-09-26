@@ -111,7 +111,8 @@ article p {
 
 article > p code,
 article > ol > li > code,
-blockquote > p code {
+blockquote > p code,
+td code {
     @apply text-xs sm:text-sm;
     @apply leading-5 sm:leading-6;
     @apply py-0.5 px-1;
