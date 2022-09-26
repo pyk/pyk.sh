@@ -6,10 +6,10 @@
     "scripts": {
         "prettier": "prettier --check .",
         "build:site": "eleventy",
-        "build:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --minify",
+        "build:css": "tailwindcss -i ./style.css -o ./_site/style.css --minify",
         "build": "concurrently pnpm:build:*",
         "dev:serve": "eleventy --serve",
-        "dev:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --watch --minify",
+        "dev:css": "tailwindcss -i ./style.css -o ./_site/style.css --watch --minify",
         "dev": "concurrently pnpm:dev:*",
         "prepare": "husky install",
         "postinstall": "pnpm prepare",

@@ -129,7 +129,7 @@ main {
     @apply tracking-wide;
 }
 
-.project-item-info p {
+.project-item-info time {
     @apply text-base text-label-dark-secondary;
 }
 
