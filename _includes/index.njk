@@ -1,11 +1,14 @@
 ---
 layout: base.njk
+title: pyk
+description: Co-founder of Risedle
 header:
     image: "/opengraph.png"
     description: Co-founder of Risedle
 ---
 
 {%- from "components/project-item/macro.njk" import projectItem -%}
+{%- from "components/posts/macro.njk" import posts -%}
 
 <main>
         <section id="about">
@@ -39,22 +42,11 @@ header:
 
         <section id="latest-post-section">
             <h2>Latest tutorials</h2>
-            <ul class="posts">
-                {%- for post in collections.tutorial | reverse -%}
-                    <li>
-                        <a
-                            class="post-item"
-                            href="{{ post.url }}"
-                            title="{{ post.data.title }}"
-                        >
-                            <span>
-                                {{ post.data.date | formatDate("YYYY/MM") }}
-                            </span>
-                            <h3>{{ post.data.title }}</h3>
-                        </a>
-                    </li>
-                {%- endfor -%}
-            </ul>
+            {{
+                posts({
+                    posts: collections.tutorial | reverse
+                })
+            }}
             <a href="/tutorials" title="Show all tutorials">Show all tutorials &#10142;</a>
         </section>
 </main>
