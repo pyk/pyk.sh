@@ -1,5 +1,5 @@
 ---
-layout: post.njk
+layout: tutorial.njk
 title: How to create shareable or reusable prettier configuration
 description:
     In this tutorial, I will show you how to create a shareable or reusable
@@ -11,7 +11,6 @@ tags:
     - post
     - tutorial
     - prettier
-permalink: "/tutorials/{{ title | slugify }}/"
 ---
 
 **Note**: Full source code is available on [github][3].

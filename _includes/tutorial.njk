@@ -1,0 +1,31 @@
+---
+layout: base.njk
+type: "article"
+permalink: "/tutorials/{{ title | slugify }}/"
+---
+
+<article>
+    <h1>{{ title }}</h1>
+    <time datetime="{{ date | formatDate("YYYY-MM-DD") }}">{{ date | formatDate("ddd MMM D YYYY") }}</time>
+
+    {{ content | safe }}
+
+    <p>
+        <hr />
+    </p>
+
+    <p>
+        See all posts published in {% for tag in tags %}
+            {% if tag !== "post" %}
+                <a href="/topics/{{ tag }}">{{ tag }}</a>
+            {% endif %}
+        {% endfor %}</i>
+    </p>
+
+    <p>
+        Questions or comments? <a href="mailto:gm@pyk.sh">Email me</a> or
+        <a href="https://twitter.com/sepyke">tweet at @sepyke</a>.
+    </p>
+
+</article>
+

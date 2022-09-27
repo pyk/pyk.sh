@@ -1,14 +1,14 @@
 ---
-layout: post.njk
-title: |
-    Deploy to Every Networks on the Same Address using Foundry
+layout: tutorial.njk
+title: How to deploy smart contract to the same address using Foundry
 description: |
     This is short tutorial on how to deploy smart contract to every networks
     on the same address. We will use similar approach used by Multicall3.
 date: 2022-04-12
-permalink: /same-address-contract-deployment/
 tags:
     - post
+    - tutorial
+    - solidity
     - foundry
 ---
 

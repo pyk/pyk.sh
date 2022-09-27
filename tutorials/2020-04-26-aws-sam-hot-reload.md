@@ -1,14 +1,13 @@
 ---
-layout: post.njk
-title: |
-    Hot Reload & Fast Local Development for AWS Lambda
-description: |
+layout: tutorial.njk
+title: How to enable fast hot reload for AWS Lambda development
+description:
     This is my first time using AWS Lambda development tool. I use the
     following command to start the development server locally
 date: 2020-04-26
-permalink: /aws-lambda-hot-reload/
 tags:
     - post
+    - tutorial
     - aws
 ---
 

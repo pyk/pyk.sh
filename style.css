@@ -192,22 +192,32 @@ section {
  ****************************************************************************/
 
 .posts {
-    @apply flex flex-col;
+    @apply flex flex-col space-y-4;
     @apply p-0 list-none;
 }
 
 .post-item {
-    @apply flex flex-row space-x-4 items-center;
+    @apply flex flex-row space-x-4;
 }
 
 .post-item span {
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-lg;
+    @apply h-max;
 }
 
 .post-item h3 {
     @apply text-lg font-medium text-label-dark-primary;
-    @apply tracking-wide leading-none;
+    @apply tracking-wide leading-8;
+}
+
+/* Opacity hover */
+.posts:hover > li {
+    @apply opacity-50;
+}
+
+.posts > li:hover {
+    @apply opacity-100 !important;
 }
 
 /*****************************************************************************

@@ -1,16 +1,25 @@
 ---
-layout: post.njk
-title: |
-    Jest: Cannot redefine property
-description: |
-    Ok, recently I have encountered this problem when writing tests for Risedle
-    Interface. This happen whtn you try to mock some function like this.
+layout: tutorial.njk
+title: How to fix Cannot redefine property "x" TypeError in Jest
+description:
+    The "Cannot redefine property" error occurs when you are trying to mock a
+    function that directly exported in the package. To fix the error, we can
+    explicitly mock the package or use barrel approach.
 date: 2022-06-22
-permalink: /jest-cannot-redefine-property/
 tags:
     - post
+    - tutorial
+    - typescript
     - jest
 ---
+
+**Disclaimer**: adas
+
+The "Cannot redefine property" error occurs when you are trying to mock a
+function that directly exported in the package. To fix the error, we can
+explicitly mock the package or use barrel approach.
+
+For example, if you have
 
 Ok, recently I have encountered this problem when writing tests for
 [Risedle](https://risedle.com/) Interface:

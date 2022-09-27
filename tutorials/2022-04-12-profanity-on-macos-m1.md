@@ -1,14 +1,14 @@
 ---
-layout: post.njk
-title: |
-    Generate Vanity Wallet Address on macOS M1
-description: |
-    This is quick note on how to run profanity on macOS M1. Make sure you run
-    the terminal using Rosetta. Then clone the profanity repo.
+layout: tutorial.njk
+title: How to generate vanity wallet address on macOS M1
+description:
+    In this tutorial, I will show you how to generate vanity wallet address on
+    macOS M1. This is quick note on how to run profanity on macOS M1. Make sure
+    you run the terminal using Rosetta. Then clone the profanity repo.
 date: 2022-04-12
-permalink: /vanity-wallet-on-macos/
 tags:
     - post
+    - tutorial
     - eth
 ---
 

@@ -1,15 +1,16 @@
 ---
-layout: post.njk
-title: |
-    How to install dapptools on macOS M1
-description: |
+layout: tutorial.njk
+title: How to install dapptools on macOS M1
+description:
+    In this tutorial I will show you how to install dapptools on macos M1.
     Installing dapptools is very daunting task, especially dealing with nix
-    package manager. In this post I will show you how to install dapptools
-    on macOS M1
+    package manager. In this post I will show you how to install dapptools on
+    macOS M1
 date: 2022-03-19
-permalink: /install-dapptools-on-macos/
 tags:
     - post
+    - tutorial
+    - smart-contract
     - dapptools
 ---
 
