@@ -1,112 +1,39 @@
 ---
 layout: base.njk
+header:
+    image: "/opengraph.png"
+    description: Co-founder of Risedle
 ---
 
 <main>
-    <div id="hero">
-        <div id="profile">
-            <img
-                src="/pyk.png"
-                alt="pyk's profile picture"
-                width="64px"
-                height="64px"
-            >
-            <div id="name-role">
-                <h1>{{ title }}</h1>
-                <p>Co-founder of <strong>Risedle</strong></p>
-            </div>
-        </div>
-        <div id="about">
+        <section id="about">
             <p>
                 Helping Web3 investors access decentralized finance and gains
                 a sustainable returns. Writing about web & smart contract
                 development.
             </p>
-        </div>
-    </div>
+        </section>
 
-    <div id="projects">
-        <h2>Projects</h2>
-        <ul>
-            {%- for project in collections.project -%}
-                <li>
-                    <a class="project-item" href="{{ project.url }}">
-                        <img
-                            class="project-item-logo"
-                            src="/projects/{{ project.data.projectId }}.svg"
-                            alt="{{ project.data.title }}"
-                            width="48px"
-                            height="48px"
-                        >
-                        <div class="project-item-info">
-                            <h3>{{ project.data.title }}</h3>
-                            <time datetime="{{ post.date | formatDate("YYYY-MM-DD") }}">{{ post.date | formatDate("YYYY") }}</time>
-                        </div>
-                    </a>
-                </li>
-            {%- endfor -%}
-        </ul>
-        <ul>
-            <li>
-                <a class="project-item" href="#">
-                    <img
-                        class="project-item-logo"
-                        src="/projects/risedle-interface.svg"
-                        alt="pyk's profile picture"
-                        width="48px"
-                        height="48px"
-                    >
-                    <div class="project-item-info">
-                        <h3>Risedle Interface</h3>
-                        <p>2022</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="project-item" href="#">
-                    <img
-                        class="project-item-logo"
-                        src="/projects/risedle-api.svg"
-                        alt="pyk's profile picture"
-                        width="48px"
-                        height="48px"
-                    >
-                    <div class="project-item-info">
-                        <h3>Risedle API</h3>
-                        <p>2022</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="project-item" href="#">
-                    <img
-                        class="project-item-logo"
-                        src="/projects/risedle-ui.svg"
-                        alt="pyk's profile picture"
-                        width="48px"
-                        height="48px"
-                    >
-                    <div class="project-item-info">
-                        <h3>Risedle UI</h3>
-                        <p>2022</p>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="project-item" href="#">
-                    <img
-                        class="project-item-logo"
-                        src="/projects/risedle-coverage.svg"
-                        alt="pyk's profile picture"
-                        width="48px"
-                        height="48px"
-                    >
-                    <div class="project-item-info">
-                        <h3>Risedle Code Coverage</h3>
-                        <p>2022</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
+        <section id="project-section">
+            <h2>Projects</h2>
+            <ul class="projects">
+                {%- for project in collections.project -%}
+                    <li>
+                        <a class="project-item" href="{{ project.url }}">
+                            <img
+                                class="project-item-logo"
+                                src="/projects/{{ project.data.projectId }}.svg"
+                                alt="{{ project.data.title }}"
+                                width="48px"
+                                height="48px"
+                            >
+                            <div class="project-item-info">
+                                <h3>{{ project.data.title }}</h3>
+                                <time datetime="{{ post.date | formatDate("YYYY-MM-DD") }}">{{ post.date | formatDate("YYYY") }}</time>
+                            </div>
+                        </a>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </section>
 </main>

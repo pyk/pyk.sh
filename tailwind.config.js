@@ -17,6 +17,9 @@ module.exports = {
                         secondary: "rgba(235,235,245,0.6)",
                     },
                 },
+                blue: {
+                    dark: "#0A84FF",
+                },
                 light: {
                     bg: {
                         default: "#FFFFFF",

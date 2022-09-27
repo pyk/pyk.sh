@@ -2,35 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/*****************************************************************************
+ * Body
+ ****************************************************************************/
+
 body {
     @apply font-sans;
     @apply bg-bg-dark-base-primary text-label-dark-primary;
 }
 
-a {
-    @apply text-light-blue;
-}
-
-a:hover {
-    @apply underline;
-}
-
-a[aria-current="page"] {
-    @apply text-light-blue underline;
-}
-
-/*****************************************************************************
- * Header
- ****************************************************************************/
-
-header {
-    @apply max-w-2xl mx-auto;
-    @apply px-6 py-4;
-}
-
 /*****************************************************************************
  * Navigation
  ****************************************************************************/
+
+nav {
+    @apply container max-w-2xl mx-auto;
+    @apply px-6 py-4;
+}
 
 nav ul {
     @apply list-none pl-0;
@@ -54,66 +42,91 @@ nav p {
 }
 
 /*****************************************************************************
+ * Header
+ ****************************************************************************/
+
+header {
+    @apply container max-w-2xl mx-auto;
+    @apply px-6 py-4;
+    @apply flex flex-col space-y-2;
+}
+
+#breadcrumb {
+    @apply list-none pl-0;
+    @apply flex flex-row space-x-2;
+    @apply text-sm leading-4 text-label-dark-secondary;
+    @apply min-h-[1rem];
+}
+
+#breadcrumb a:hover {
+    @apply no-underline;
+}
+
+#header-info {
+    @apply flex flex-row;
+    @apply space-x-4 items-center;
+    @apply min-h-[64px];
+}
+
+#header-info img {
+    @apply w-[64px] h-[64px];
+    @apply rounded-2xl;
+}
+
+#header-info-content {
+    @apply flex flex-col;
+    @apply space-y-1;
+}
+
+#header-info-content h1 {
+    @apply font-medium text-2xl leading-none;
+}
+
+#header-info-content p {
+    @apply text-base text-label-dark-secondary;
+}
+
+/*****************************************************************************
  * Main
  ****************************************************************************/
 
 main {
-    @apply max-w-2xl mx-auto;
-    @apply px-6 pt-8;
+    @apply container max-w-2xl mx-auto;
+    @apply px-6;
+    @apply flex flex-col space-y-8;
+}
+
+main h1,
+main h2 {
+    @apply font-medium text-2xl;
+}
+
+section {
+    @apply flex flex-col space-y-4;
 }
 
 /*****************************************************************************
  * Hero
  ****************************************************************************/
 
-#profile {
-    @apply flex flex-row;
-    @apply space-x-4;
-}
-
-#hero {
-    @apply space-y-6;
-}
-
-#name-role {
-    @apply flex flex-col;
-    @apply space-y-1;
-}
-
-#name-role h1 {
-    @apply font-medium text-2xl;
-}
-
-#name-role p {
-    @apply text-base text-label-dark-secondary;
-}
-
 #about p {
     @apply text-xl tracking-wide;
 }
 
 /*****************************************************************************
- * Projects
+ * Projects Component
  ****************************************************************************/
-#projects {
-    @apply pt-8;
+
+.projects {
     @apply flex flex-col;
-    @apply space-y-4;
-}
-
-#projects h1,
-#projects h2 {
-    @apply font-medium text-2xl;
-}
-
-#projects ul {
     @apply p-0 list-none;
-    @apply grid grid-rows-1 sm:grid-rows-2 sm:grid-flow-col gap-4;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
 }
 
 .project-item {
     @apply flex flex-row;
     @apply space-x-4;
+    @apply items-center;
 }
 
 .project-item:hover {
@@ -127,7 +140,7 @@ main {
 
 .project-item-info h3 {
     @apply text-lg font-medium text-label-dark-primary;
-    @apply tracking-wide;
+    @apply tracking-wide leading-none;
 }
 
 .project-item-info time {
@@ -135,11 +148,11 @@ main {
 }
 
 /* Opacity hover */
-#projects > ul:hover > li {
+.projects > ul:hover > li {
     @apply opacity-50;
 }
 
-#projects > ul > li:hover {
+.projects > ul > li:hover {
     @apply opacity-100 !important;
 }
 

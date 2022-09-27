@@ -1,10 +1,15 @@
 ---
 layout: base.njk
+breadcrumbs:
+    - name: Home
+      position: 1
+      path: "/"
+header:
+    description: List of projects
 ---
 
-<main id="projects">
-    <h1>Projects</h1>
-    <ul>
+<main>
+    <ul class="projects">
         {%- for project in collections.project -%}
             <li>
                 <a class="project-item" href="{{ project.url }}">

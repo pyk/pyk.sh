@@ -52,32 +52,75 @@
 </head>
 
 <body>
+    <!-- START NAVIGATION -->
+    <nav>
+        <ul>
+            <li>
+                <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/projects/" {% if page.url == "/projects/" %} aria-current="page" {% endif %}>
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a href="/tutorials/" {% if page.url == "/tutorials/" %} aria-current="page" {% endif %}>
+                    Tutorials
+                </a>
+            </li>
+            <li>
+                <a href="/faq/" {% if page.url == "/faq/" %} aria-current="page" {% endif %}>
+                    Dev FAQ
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- START HEADER -->
     <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/" {% if page.url == "/" %} aria-current="page" {% endif %}>
-                        Home
+        <ol
+            id="breadcrumb"
+            itemscope
+            itemtype="https://schema.org/BreadcrumbList"
+        >
+            {%- for breadcrumb in breadcrumbs -%}
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="{{ breadcrumb.path }}">
+                        <span itemprop="name">{{ breadcrumb.name }}</span>
                     </a>
+                    <meta itemprop="position" content="{{ breadcrumb.position }}" />
                 </li>
                 <li>
-                    <a href="/projects/" {% if page.url == "/projects/" %} aria-current="page" {% endif %}>
-                        Projects
-                    </a>
+                    &#10095;
                 </li>
-                <li>
-                    <a href="/tutorials/" {% if page.url == "/tutorials/" %} aria-current="page" {% endif %}>
-                        Tutorials
-                    </a>
+            {%- endfor -%}
+            {%- if page.url != "/" -%}
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">{{ title }}</span>
+                    <meta itemprop="position" content="{{ breadcrumbs | length + 1}}" />
                 </li>
-                <li>
-                    <a href="/faq/" {% if page.url == "/faq/" %} aria-current="page" {% endif %}>
-                        Dev FAQ
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            {%- endif -%}
+        </ol>
+        <div id="header-info">
+            {%- if header.image -%}
+                <img
+                    id="header-info-image"
+                    src="{{ header.image }}"
+                    alt="{{ title }}"
+                    width="64px"
+                    height="64px"
+                >
+            {%- endif -%}
+            <div id="header-info-content">
+                <h1>{{ title }}</h1>
+                <p>{{ header.description }}</p>
+            </div>
+        </div>
     </header>
+    <!-- END HEADER -->
 
     {{ content | safe }}
 
