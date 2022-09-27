@@ -15,22 +15,37 @@ header:
         </section>
 
         <section id="project-section">
-            <h2>Projects</h2>
+            <h2>Featured Projects</h2>
             <ul class="projects">
                 {%- for project in collections.project -%}
                     <li>
                         <a class="project-item" href="{{ project.url }}">
-                            <img
-                                class="project-item-logo"
-                                src="/projects/{{ project.data.projectId }}.svg"
-                                alt="{{ project.data.title }}"
-                                width="48px"
-                                height="48px"
-                            >
                             <div class="project-item-info">
-                                <h3>{{ project.data.title }}</h3>
-                                <time datetime="{{ post.date | formatDate("YYYY-MM-DD") }}">{{ post.date | formatDate("YYYY") }}</time>
+                                <img
+                                    class="project-item-info-logo"
+                                    src="/projects/{{ project.data.projectId }}.svg"
+                                    alt="{{ project.data.title }}"
+                                    width="48px"
+                                    height="48px"
+                                >
+                                <div class="project-item-info-name">
+                                    <h3>{{ project.data.title }}</h3>
+                                    <time datetime="{{ project.data.date |
+formatDate("YYYY-MM-DD") }}">{{ project.data.date | formatDate("YYYY/MM") }}</time>
+                                </div>
                             </div>
+                            <div class="project-item-description">
+                                <p>{{ project.data.description }}</p>
+                            </div>
+                            <ul class="project-item-stacks">
+                                {%- for stack in project.data.stacks -%}
+                                    <li>
+                                        <span class="stack-item">
+                                            {{ stack }}
+                                        </span>
+                                    </li>
+                                {%- endfor -%}
+                            </ul>
                         </a>
                     </li>
                 {%- endfor -%}

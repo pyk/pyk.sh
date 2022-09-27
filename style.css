@@ -74,16 +74,15 @@ header {
 }
 
 #header-info-content {
-    @apply flex flex-col;
-    @apply space-y-1;
+    @apply flex flex-col space-y-2;
 }
 
 #header-info-content h1 {
-    @apply font-medium text-2xl leading-none;
+    @apply font-medium text-2xl leading-none tracking-wide;
 }
 
 #header-info-content p {
-    @apply text-base text-label-dark-secondary;
+    @apply text-base text-label-dark-secondary tracking-wide leading-4;
 }
 
 /*****************************************************************************
@@ -120,13 +119,12 @@ section {
 .projects {
     @apply flex flex-col;
     @apply p-0 list-none;
-    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-6;
 }
 
 .project-item {
-    @apply flex flex-row;
-    @apply space-x-4;
-    @apply items-center;
+    @apply flex flex-col;
+    @apply space-y-2;
 }
 
 .project-item:hover {
@@ -136,6 +134,10 @@ section {
 .project-item img {
     @apply w-[48px] h-[48px];
     @apply rounded-2xl;
+}
+
+.project-item-info {
+    @apply flex flex-row items-center space-x-4;
 }
 
 .project-item-info h3 {
@@ -148,12 +150,25 @@ section {
 }
 
 /* Opacity hover */
-.projects > ul:hover > li {
+.projects:hover > li {
     @apply opacity-50;
 }
 
-.projects > ul > li:hover {
+.projects > li:hover {
     @apply opacity-100 !important;
+}
+
+.project-item-description {
+    @apply text-base tracking-wide;
+}
+
+.project-item-stacks {
+    @apply pl-0 list-none;
+    @apply flex flex-row space-x-2;
+}
+.stack-item {
+    @apply bg-bg-dark-elevated-primary text-label-dark-primary;
+    @apply py-1 px-2 rounded-lg;
 }
 
 /*****************************************************************************

@@ -9,6 +9,9 @@ module.exports = {
                         base: {
                             primary: "#000000",
                         },
+                        elevated: {
+                            primary: "#1C1C1E",
+                        },
                     },
                 },
                 label: {
