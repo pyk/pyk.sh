@@ -11,6 +11,10 @@ type: "article"
 permalink: "/tutorials/{{ title | slugify }}/"
 ---
 
+{%- from "components/posts/macro.njk" import posts -%}
+{%- set relatedTutorials = collections.tutorial | related -%}
+{%- set relatedQuestions = collections.faq | related -%}
+
 <main>
     <article>
         {{ content | safe }}
@@ -18,8 +22,33 @@ permalink: "/tutorials/{{ title | slugify }}/"
 
     <section id="contact">
         <p>
-            Questions or comments? <a href="mailto:gm@pyk.sh">Email me</a> or
-            <a href="https://twitter.com/sepyke">tweet at @sepyke</a>.
+            Questions or comments? Email <a href="mailto:gm@pyk.sh">gm@pyk.sh</a>
+            or tweet at <a href="https://twitter.com/sepyke">@sepyke</a>.
         </p>
     </section>
+
+    {%- if relatedTutorials | length -%}
+        <section class="latest-post-section">
+            <h2>Related tutorials</h2>
+            {{
+                posts({
+                    posts: relatedTutorials | reverse
+                })
+            }}
+            <a href="/tutorials/" title="Show all tutorials">Show all tutorials &#10142;</a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedQuestions | length -%}
+        <section class="latest-post-section">
+            <h2>Related FAQ</h2>
+            {{
+                posts({
+                    posts: relatedQuestions | reverse
+                })
+            }}
+            <a href="/questions/" title="Show all FAQs">Show all FAQs &#10142;</a>
+        </section>
+    {%- endif -%}
+
 </main>

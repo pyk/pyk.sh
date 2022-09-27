@@ -80,6 +80,30 @@ module.exports = function (eleventyConfig) {
     });
 
     /*************************************************************************
+     * Filters
+     ************************************************************************/
+
+    /**
+     * Related tags filter.
+     *
+     * Usage:
+     *
+     * {%- set relatedPosts = collections.all | related -%}
+     */
+    eleventyConfig.addNunjucksFilter("related", function (collection = []) {
+        const { tags, page } = this.ctx;
+        return collection.filter((post) => {
+            const filteredTags = post.data.tags?.filter(
+                (tag) => !["post", "tutorial", "project", "faq"].includes(tag)
+            );
+            return (
+                post.url !== page.url &&
+                filteredTags.some((tag) => tags.includes(tag))
+            );
+        });
+    });
+
+    /*************************************************************************
      * Plugins
      ************************************************************************/
     eleventyConfig.addPlugin(syntaxHighlight);

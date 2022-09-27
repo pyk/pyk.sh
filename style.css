@@ -185,17 +185,20 @@ section {
 }
 
 #project-section,
-#latest-post-section {
+#latest-post-section,
+.latest-post-section {
     @apply flex flex-col space-y-8;
 }
 
 #project-section a,
-#latest-post-section a {
+#latest-post-section a,
+.latest-post-section a {
     @apply text-base text-label-dark-secondary;
 }
 
 #project-section a:hover,
-#latest-post-section a:hover {
+#latest-post-section a:hover,
+.latest-post-section a:hover {
     @apply text-label-dark-primary;
 }
 
@@ -381,6 +384,10 @@ tbody > tr {
 
 #contact {
     @apply p-4 bg-bg-dark-elevated-primary rounded-xl;
+}
+
+#contact p {
+    @apply text-center;
 }
 
 #contact a {
