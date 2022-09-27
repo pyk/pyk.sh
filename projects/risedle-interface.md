@@ -17,6 +17,7 @@ breadcrumbs:
 header:
     image: "/projects/risedle-interface.svg"
     description: "Risedle's Web3 App"
+    showURL: "https://githubc.com/riselde"
 ---
 
 test

@@ -114,11 +114,15 @@
                     height="64px"
                 >
             {%- endif -%}
-            <div id="header-info-content">
+            <div id="header-info-content" class="grow">
                 <h1>{{ title }}</h1>
                 <p>{{ header.description }}</p>
             </div>
+            {%- if header.showURL -%}
+                <a class="button blue" href="#">Show project</a>
+            {%- endif -%}
         </div>
+
     </header>
     <!-- END HEADER -->
 
