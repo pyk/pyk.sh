@@ -188,6 +188,29 @@ section {
 }
 
 /*****************************************************************************
+ * Posts Component
+ ****************************************************************************/
+
+.posts {
+    @apply flex flex-col;
+    @apply p-0 list-none;
+}
+
+.post-item {
+    @apply flex flex-row space-x-4 items-center;
+}
+
+.post-item span {
+    @apply bg-bg-dark-elevated-primary text-label-dark-primary;
+    @apply py-1 px-2 rounded-lg;
+}
+
+.post-item h3 {
+    @apply text-lg font-medium text-label-dark-primary;
+    @apply tracking-wide leading-none;
+}
+
+/*****************************************************************************
  * Button Component
  ****************************************************************************/
 

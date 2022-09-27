@@ -34,7 +34,7 @@ header:
                     </li>
                 {%- endfor -%}
             </ul>
-            <a href="/projects">Show all projects &#10142;</a>
+            <a href="/projects" title="Show all projects">Show all projects &#10142;</a>
         </section>
 
         <section id="latest-post-section">
@@ -42,12 +42,19 @@ header:
             <ul class="posts">
                 {%- for post in collections.tutorial | reverse -%}
                     <li>
-                        <a href="{{ post.url }}">
+                        <a
+                            class="post-item"
+                            href="{{ post.url }}"
+                            title="{{ post.data.title }}"
+                        >
+                            <span>
+                                {{ post.data.date | formatDate("YYYY/MM") }}
+                            </span>
                             <h3>{{ post.data.title }}</h3>
                         </a>
                     </li>
                 {%- endfor -%}
             </ul>
-            <a href="/projects">Show all projects &#10142;</a>
+            <a href="/tutorials" title="Show all tutorials">Show all tutorials &#10142;</a>
         </section>
 </main>
