@@ -59,30 +59,42 @@ header {
 }
 
 #breadcrumb a:hover {
-    @apply no-underline;
+    @apply no-underline text-label-dark-primary;
 }
 
-#header-info {
+#header-info-page {
     @apply flex flex-row;
     @apply space-x-4 items-center;
     @apply min-h-[64px];
 }
 
-#header-info img {
+#header-info-page img {
     @apply w-[64px] h-[64px];
     @apply rounded-2xl;
 }
 
-#header-info-content {
+#header-info-page-content {
     @apply flex flex-col space-y-2;
 }
 
-#header-info-content h1 {
-    @apply font-medium text-2xl leading-none tracking-wide;
+#header-info-page-content h1 {
+    @apply text-xl sm:text-2xl font-semibold leading-none;
 }
 
-#header-info-content p {
+#header-info-page-content p {
     @apply text-base text-label-dark-secondary tracking-wide leading-4;
+}
+
+#header-info-article {
+    @apply flex flex-col space-y-4;
+}
+
+#header-info-article h1 {
+    @apply text-xl sm:text-2xl font-semibold leading-none;
+}
+
+#header-info-article > time {
+    @apply text-sm sm:text-base text-label-dark-secondary;
 }
 
 /*****************************************************************************
@@ -237,9 +249,8 @@ section {
  ****************************************************************************/
 
 article {
-    @apply sm:basis-10/12 md:basis-8/12;
-    @apply mt-12 sm:mt-16;
-    @apply max-w-xl;
+    @apply container max-w-2xl mx-auto;
+    @apply px-6;
 }
 
 article > h1,
@@ -271,6 +282,10 @@ article p {
     @apply my-4 sm:my-6;
 }
 
+article a {
+    @apply text-blue-dark;
+}
+
 article > p code,
 article > ol > li > code,
 blockquote > p code,
@@ -278,7 +293,7 @@ td code {
     @apply text-xs sm:text-sm;
     @apply leading-5 sm:leading-6;
     @apply py-0.5 px-1;
-    @apply bg-light-bg-secondary;
+    @apply bg-bg-dark-elevated-primary;
     @apply rounded;
 }
 
@@ -292,14 +307,53 @@ ul {
     @apply text-sm sm:text-base;
 }
 
+/* Syntax highlight custom */
 article > pre {
-    @apply rounded;
+    @apply bg-bg-dark-base-primary border-none !important;
 }
 
 article > pre,
 article > pre > code {
     @apply selection:text-white selection:bg-light-blue !important;
     @apply text-xs sm:text-sm font-mono !important;
+}
+
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+    @apply text-label-dark-secondary !important;
+}
+
+.language-autohotkey .token.tag,
+.token.deleted,
+.token.function {
+    @apply text-blue-dark !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"],
+.token.operator,
+.token.punctuation {
+    @apply text-label-dark-primary !important;
+}
+
+.token.boolean,
+.token.constant,
+.token.entity,
+.token.inserted,
+.token.number,
+.token.property,
+.token.regex,
+.token.symbol,
+.token.url,
+.token.variable {
+    @apply text-green-dark !important;
+}
+
+.token.attr-value,
+.token.string {
+    @apply text-pink-dark !important;
 }
 
 article > blockquote {
@@ -312,16 +366,15 @@ article table {
 }
 
 table > thead {
-    @apply text-xs text-gray-700 uppercase bg-gray-50;
+    @apply text-xs text-label-dark-secondary uppercase;
 }
 
 th,
 td {
-    @apply py-3 px-6;
+    @apply py-2 px-2;
 }
 
 tbody > tr {
-    @apply bg-white border-b hover:bg-gray-50;
 }
 
 /*****************************************************************************

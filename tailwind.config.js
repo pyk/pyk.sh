@@ -23,6 +23,12 @@ module.exports = {
                 blue: {
                     dark: "#0A84FF",
                 },
+                pink: {
+                    dark: "#FF2D55",
+                },
+                green: {
+                    dark: "#30D158",
+                },
                 light: {
                     bg: {
                         default: "#FFFFFF",

@@ -10,6 +10,8 @@ date: 2022-09-26
 tags:
     - post
     - tutorial
+    - typescript
+    - nodejs
     - prettier
 ---
 
@@ -19,14 +21,17 @@ In this tutorial, I will show you how to create a shareable or reusable
 prettier configuration that you can use on multiple projects without need to
 copy-paste your configuration file.
 
-If you use prettier on multiple projects, this post is for you. After read this
-post you will be able to manage prettier configuration for all of your projects
-in one place to save time, versioning your config file and stay consistent
-across projects.
+If you use prettier on multiple projects, this tutorial is for you. You will be
+able to manage prettier configuration for all of your projects in one place and
+versioning your personal or team-shared config file. This will save a lot of
+time for you and your teammates.
 
-In this post we will review the basic first about prettier and then we will
-create a shareable or reusable prettier configuration from scratch and
-distribute it as npm package. Feel free to skip the introduction section.
+We will start by reviewing the basic information about prettier first and then
+we will create a shareable or reusable prettier configuration from scratch and
+distribute it as npm package.
+
+If you are familiar with prettier, feel free to go straight to the tutorial
+section.
 
 ### Brief overview
 
@@ -34,11 +39,14 @@ distribute it as npm package. Feel free to skip the introduction section.
 code. It is an essential tool that you must use to write readable code with
 consistent formatting.
 
+Prettier transforms _ugly & unredable_ source code to _pretty & readable_
+source code, hence the name _Prettier_.
+
 Prettier is the most popular code formatter tool and supported by wide-variety
 of code editors. You can customize the formatting results based on your
-personal or team preferences.
+personal or team preferences via Prettier Options.
 
-These are most widely used the options that you can customize:
+Example of Prettier options:
 
 | Option           | Description                                                                                 |
 | ---------------- | ------------------------------------------------------------------------------------------- |
@@ -51,12 +59,19 @@ These are most widely used the options that you can customize:
 | `proseWrap`      | Wrap prose based on `printWidth`                                                            |
 | `bracketSpacing` | Print spaces between brackets in object literals.                                           |
 
-See full available options [here][4]
+See full available options [here][4].
+
+You can store the Prettier options in `.prettierrc` file or `package.json` on
+your project. If you work on multiple projects you will find yourself
+copy-paste your `.prettierrc` file and need to update the file one-by-one if
+your code format preferences changes.
+
+So, how to create reusable Prettier configuration across multiple projects?
 
 ### Shareable Prettier Configuration
 
 Let's create shareable prettier configuration and distribute it as npm package.
-You can access the finished version [here][3].
+The full source code is available [here][3].
 
 First, create new project by running the following command:
 

@@ -89,7 +89,6 @@ module.exports = function (eleventyConfig) {
      ************************************************************************/
     const markdownItOptions = {
         html: true,
-        breaks: true,
         linkify: true,
     };
     eleventyConfig.setLibrary(

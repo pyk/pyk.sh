@@ -1,0 +1,21 @@
+---
+layout: base.njk
+breadcrumbs:
+    - name: Home
+      position: 1
+      path: "/"
+title: Frequently Asked Questions
+description: A list of my personal "What is" and "How it works" stuff
+---
+
+{%- from "components/posts/macro.njk" import posts -%}
+
+<main>
+    <section id="latest-post-section">
+        {{
+            posts({
+                posts: collections.faq | reverse
+            })
+        }}
+    </section>
+</main>

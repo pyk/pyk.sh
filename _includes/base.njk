@@ -71,8 +71,13 @@
                 </a>
             </li>
             <li>
-                <a href="/faq/" {% if page.url == "/faq/" %} aria-current="page" {% endif %}>
-                    Dev FAQ
+                <a
+                    href="/questions/"
+                    {% if page.url == "/questions/" %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    FAQ
                 </a>
             </li>
         </ul>
@@ -104,25 +109,27 @@
                 </li>
             {%- endif -%}
         </ol>
-        <div id="header-info">
-            {%- if header.image -%}
-                <img
-                    id="header-info-image"
-                    src="{{ header.image }}"
-                    alt="{{ title }}"
-                    width="64px"
-                    height="64px"
-                >
-            {%- endif -%}
-            <div id="header-info-content" class="grow">
+        {% if type == "article" %}
+            <div id="header-info-article">
                 <h1>{{ title }}</h1>
-                <p>{{ description }}</p>
+                <time datetime="{{ date | formatDate("YYYY-MM-DD") }}">{{ date | formatDate("ddd MMM D YYYY") }}</time>
             </div>
-            {%- if header.showURL -%}
-                <a class="button blue" href="#">Show project</a>
-            {%- endif -%}
-        </div>
-
+        {% else %}
+            <div id="header-info-page">
+                {%- if header.image -%}
+                    <img
+                        src="{{ header.image }}"
+                        alt="{{ title }}"
+                        width="64px"
+                        height="64px"
+                    >
+                {%- endif -%}
+                <div id="header-info-page-content">
+                    <h1>{{ title }}</h1>
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+        {% endif %}
     </header>
     <!-- END HEADER -->
 

@@ -1,8 +1,7 @@
 ---
-layout: post.njk
-title: |
-    What is Prettier?
-description: |
+layout: question.njk
+title: What is Prettier?
+description:
     Prettier is a tool used by developers to check and fix the format of their
     code. It is an essential tool that you must use to write readable code with
     consistent formatting.
@@ -11,7 +10,7 @@ tags:
     - post
     - faq
     - prettier
-permalink: /what-is-prettier/
+    - typescript
 ---
 
 [Prettier][1] is a tool used by developers to check and fix the format of their
