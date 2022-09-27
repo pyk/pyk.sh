@@ -1,14 +1,13 @@
 ---
-layout: post.njk
-title: |
-    How to use printf Without Shooting Yourself in the Foot
-description: |
+layout: tutorial.njk
+title: How to use printf without shooting yourself in the foot
+description:
     printf is essential functions for every c programmers. You need to learn
     the basic behavior of printf in order to use it safely.
 date: 2016-06-05
-permalink: /how-to-use-printf/
 tags:
     - post
+    - tutorial
     - c
 ---
 
