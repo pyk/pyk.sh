@@ -56,7 +56,7 @@ eleventyComputed:
     <meta property="og:image:type" content="image/png">
     {% if type == "post" %}
         <meta property="og:type" content="article">
-        <meta property="article:published_time" content="{{ date | formatDate("YYYY-MM-DD")}}">
+        <meta property="article:published_time" content="{{ publishedAt | formatDate("YYYY-MM-DD")}}">
         <meta property="article:author" content="pyk">
     {% else %}
         <meta property="og:type" content="website">

@@ -6,7 +6,8 @@ description:
     environment. It is optimized for speed, ease of use, and configurability.
     Eleventy takes a directory with content and templates and renders them into
     a full HTML website.
-date: 2022-09-28
+date: Last Modified
+publishedAt: 2022-09-28
 tags:
     - post
     - faq

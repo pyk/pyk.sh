@@ -5,7 +5,8 @@ description:
     Article Schema Markup is a markup that embedded in your website or blog to
     explicitly tell search engine like Google about your website or blog
     content.
-date: 2022-09-28
+date: Last Modified
+publishedAt: 2022-09-28
 tags:
     - post
     - faq

@@ -5,7 +5,8 @@ description:
     Prettier is a tool used by developers to check and fix the format of their
     code. It is an essential tool that you must use to write readable code with
     consistent formatting.
-date: 2022-09-26
+date: Last Modified
+publishedAt: 2022-09-26
 tags:
     - post
     - faq

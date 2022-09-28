@@ -2,10 +2,10 @@
 layout: question.njk
 title: What is Static Site Generator?
 description:
-    Prettier is a tool used by developers to check and fix the format of their
-    code. It is an essential tool that you must use to write readable code with
-    consistent formatting.
-date: 2022-09-28
+    Static Site Generator is a program that process a directory with content
+    and templates and renders them into a full HTML website.
+date: Last Modified
+publishedAt: 2022-09-28
 tags:
     - post
     - faq
