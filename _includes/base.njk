@@ -130,12 +130,17 @@ eleventyComputed:
                     &#10095;
                 </li>
             {%- endfor -%}
-            {%- if page.url != "/" -%}
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">{{ title }}</span>
-                    <meta itemprop="position" content="{{ breadcrumbs | length + 1}}" />
-                </li>
-            {%- endif -%}
+            <li
+                itemprop="itemListElement"
+                itemscope
+                itemtype="https://schema.org/ListItem"
+                {%- if page.url == "/" -%}
+                    class="opacity-0"
+                {%- endif -%}
+            >
+                <span itemprop="name">{{ title }}</span>
+                <meta itemprop="position" content="{{ breadcrumbs | length + 1}}" />
+            </li>
         </ol>
         {% if type == "post" %}
             <div id="header-info-article">
