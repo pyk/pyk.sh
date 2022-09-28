@@ -12,6 +12,7 @@ tags:
     - post
     - tutorial
     - smart-contract
+    - wallet-address
     - foundry
 ---
 
@@ -58,23 +59,9 @@ foundryup -b master
 ```
 
 Next step is to deploy the smart contract. We will deploy the smart contract in
-[`pyk/foundry-tutorial-same-address`][4] as the example:
+[`pyk/foundry-tutorial-same-address`][4] as the example.
 
-[1]: /questions/what-is-foundry/
-[2]: https://github.com/mds1/multicall
-[3]: /questions/what-is-wallet-address/
-[4]: https://github.com/pyk/foundry-tutorial-same-address
-
----
-
-### Install Foundry
-
-### Deploy & Verify
-
-We will use the following
-[Foundry project](https://github.com/pyk/foundry-tutorial-same-address).
-
-Clone & setup the project:
+Let's clone the project first:
 
 ```shell
 git clone git@github.com:pyk/foundry-tutorial-same-address.git
@@ -82,11 +69,9 @@ cd foundry-tutorial-same-address/
 forge update
 ```
 
-Let’s deploy on each network!
+Let’s deploy the smart contract to multiple blockchain networks!
 
-### Rinkeby
-
-Deploy the contract:
+Start from **Rinkeby**:
 
 ```shell
 forge create --chain=rinkeby \
@@ -116,10 +101,9 @@ forge verify-contract --chain-id=rinkeby \
     <ETHERSCAN_API_KEY>
 ```
 
-The contract is deployed
-[here](https://rinkeby.etherscan.io/address/0x01bb3f43c855b80dd82ad6468c378aae73decc84).
+The contract is deployed [here][5].
 
-### Kovan
+Let's deploy to the next network: **Kovan**.
 
 Deploy contract:
 
@@ -142,8 +126,6 @@ Transaction hash: 0x2ca4cfbf9ee2af877cd50efec49b36f6b5b092d7272a2af4149faa12322a
 
 Verify the contract similar to Rinkeby above.
 
-### Results
-
 You may notice that the contract address on Rinkeby and Kovan is the same.
 
 ```text
@@ -151,3 +133,12 @@ You may notice that the contract address on Rinkeby and Kovan is the same.
 ```
 
 Repeat the step on every networks and you will get the same address!
+
+Easy right?
+
+[1]: /questions/what-is-foundry/
+[2]: https://github.com/mds1/multicall
+[3]: /questions/what-is-wallet-address/
+[4]: https://github.com/pyk/foundry-tutorial-same-address
+[5]:
+    https://rinkeby.etherscan.io/address/0x01bb3f43c855b80dd82ad6468c378aae73decc84

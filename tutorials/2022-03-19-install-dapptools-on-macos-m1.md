@@ -6,7 +6,8 @@ description:
     Installing dapptools is very daunting task, especially dealing with nix
     package manager. In this post I will show you how to install dapptools on
     macOS M1
-date: 2022-03-19
+date: Last Modified
+publishedAt: 2022-03-19
 tags:
     - post
     - tutorial
@@ -14,9 +15,11 @@ tags:
     - dapptools
 ---
 
-This is my personal note on how to install dapptools on macOS M1 machine.
+**Update**: `dapp` is no longer maintained. It's recommended to use
+[Foundry][1] instead.
 
-### Requirements
+In this quick tutorial, I will show you how to install dapptools on your macOS
+M1. You will be able to use dapptools right away after this tutorial.
 
 Make sure you have enabled Rosetta on your macOS.
 
@@ -31,8 +34,6 @@ To double check, you can run the following command:
 
 Make sure it shows `x86_64` at the end of the line, not `arm64`.
 
-### Install nix 2.5
-
 This is crucial step, most of the error is because dapptools doesn’t work well
 with the latest version of nix.
 
@@ -44,8 +45,6 @@ You can install nix 2.5 by running the following command:
 
 Follow the instruction then wait the installation finished.
 
-### Install dapptools
-
 Run the following command to install dapptools:
 
 ```shell
@@ -56,6 +55,8 @@ DONE.
 
 You should have dapptools installed.
 
+To double check the installation, run the following command:
+
 ```shell
 ✦ dapp --version
 dapp 0.35.0
@@ -64,11 +65,7 @@ Version: 0.8.6+commit.11564f7e.Darwin.appleclang
 hevm 0.49.0
 ```
 
-### Common Errors
-
-#### error: file 'REPEAT' was not found
-
-Example:
+If you got `error: file 'REPEAT' was not found` like the following:
 
 ```text
 error: file 'REPEAT' was not found in the Nix search path (add it using $NIX_PATH or -I)
@@ -78,3 +75,5 @@ error: file 'REPEAT' was not found in the Nix search path (add it using $NIX_PAT
 
 To fix this error, you need to edit the `.nix` file manually: Replace
 `<REPEAT>` with `"REPEAT"`.
+
+[1]: /questions/what-is-foundry/
