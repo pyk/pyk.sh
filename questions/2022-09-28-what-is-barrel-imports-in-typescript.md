@@ -2,8 +2,10 @@
 layout: question.njk
 title: What is barrel imports in TypeScript?
 description:
-    printf is a library function that sends formatted output to stdout. You can
-    use printf to print out any value to the terminal console.
+    Barrel is a technique to combine multiple public functions from multiple
+    module into single convenient module. Barrel is commonly used by library
+    authors to expose their functions and improve the DX (Developer
+    Experience).
 date: Last Modified
 publishedAt: 2022-09-28
 tags:

@@ -2,9 +2,9 @@
 layout: question.njk
 title: What is Jest?
 description:
-    Prettier is a tool used by developers to check and fix the format of their
-    code. It is an essential tool that you must use to write readable code with
-    consistent formatting.
+    Jest is test runner for JavaScript and TypeScript. You can use Jest to
+    write the unit test, spec file or integration test for your JavaScript or
+    TypeScript program.
 date: Last Modified
 publishedAt: 2022-09-28
 tags:
@@ -14,8 +14,8 @@ tags:
 ---
 
 [Jest][1] is test runner for JavaScript and TypeScript. You can use Jest to
-write the unit test, spec file or integration test for your
-JavaScript/TypeScript program.
+write the unit test, spec file or integration test for your JavaScript or
+TypeScript program.
 
 Suppose you have the following TypeScript module:
 

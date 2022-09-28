@@ -1,33 +1,36 @@
 ---
 layout: tutorial.njk
-title: How to deploy smart contract to the same address using Foundry
-description: |
-    This is short tutorial on how to deploy smart contract to every networks
-    on the same address. We will use similar approach used by Multicall3.
-date: 2022-04-12
+title: How to deploy smart contract to the same address across networks
+description:
+    In this tutorial, I will show you how to deploy smart contract to the same
+    address across multiple blockchain networks. The approach on this tutorial
+    should work on any tools. I will use Foundry as a tool to deploy the smart
+    contract.
+date: Last Modified
+publishedAt: 2022-04-12
 tags:
     - post
     - tutorial
-    - solidity
+    - smart-contract
     - foundry
 ---
 
-This is short tutorial on how to deploy smart contract to every networks on the
-same address. We will use similar approach used by
-[Multicall3](https://github.com/mds1/multicall).
+In this tutorial, I will show you how to deploy smart contract to the same
+address across multiple blockchain networks. The approach on this tutorial
+should work on any tools. I will use [Foundry][1] as a tool to deploy the smart
+contract.
 
-Here is the step by step:
+**TLDR**: Use one dedicated wallet that used only to deploy one smart contract.
+This will get you the same contract address on every blockchain networks. This
+approach is used by [Multicall3][2].
 
-1. Prepare new wallet dedicated for the contract deployment.
-2. Deploy the contract to all networks.
-3. DONE
+If you want to know how to do it using Foundry, you can follow the instruction
+below.
 
-Let’s get started!
+### Deploy smart contract to the same address
 
-**Note**: You can use [profanity](https://github.com/johguse/profanity) to get
-vanity wallet address. Only use this wallet for deployment only.
-
-### Wallet Preparation
+The first step is to prepare one dedicated [wallet][3] to deploy one smart
+contract across multiple chains:
 
 In this tutorial I will use the following wallet address:
 
@@ -35,14 +38,10 @@ In this tutorial I will use the following wallet address:
 0x000006b92fb31c6854e9f598f2d0096da4d02de0
 ```
 
-Make sure:
+Make sure you have send funds to your wallet deployment address and the wallet
+address is a fresh address (never interact in the target blockchain network).
 
--   You have send funds to the wallet deployment address
--   The wallet address is a fresh address
-
-### Install Foundry
-
-Install foundry by following the
+The next step is to setup Foundry. You can install foundry by following the
 [official guide](https://github.com/gakonst/foundry#installation).
 
 Here is `forge` version that I use for this tutorial:
@@ -57,6 +56,18 @@ You can get the latest version using the following command:
 ```shell
 foundryup -b master
 ```
+
+Next step is to deploy the smart contract. We will deploy the smart contract in
+[`pyk/foundry-tutorial-same-address`][4] as the example:
+
+[1]: /questions/what-is-foundry/
+[2]: https://github.com/mds1/multicall
+[3]: /questions/what-is-wallet-address/
+[4]: https://github.com/pyk/foundry-tutorial-same-address
+
+---
+
+### Install Foundry
 
 ### Deploy & Verify
 
