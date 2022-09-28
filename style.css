@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+    https://github.com/tailwindlabs/tailwindcss/discussions/2394
+    https://github.com/tailwindlabs/tailwindcss/pull/5732
+*/
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}
+
 /*****************************************************************************
  * Body
  ****************************************************************************/
@@ -20,16 +36,36 @@ nav {
     @apply px-6 py-4;
 }
 
+nav > ul:hover > li > a,
+nav > ul:hover > li > a[aria-current="page"] {
+    @apply opacity-50;
+    @apply text-label-dark-secondary;
+}
+nav > ul > li > a:hover,
+nav > ul > li > a[aria-current="page"]:hover {
+    @apply opacity-100;
+    @apply text-label-dark-primary;
+}
+
 nav ul {
     @apply list-none pl-0;
     @apply flex flex-row;
     @apply space-x-6;
+    @apply overflow-x-auto no-scrollbar;
 }
 
 nav ul li a {
     @apply text-sm sm:text-base;
     @apply font-semibold;
     @apply text-label-dark-secondary;
+    @apply flex flex-row space-x-2 items-center;
+}
+
+nav ul li a .count {
+    @apply text-xs sm:text-sm;
+    @apply text-label-dark-primary bg-pink-dark;
+    @apply leading-none rounded-xl px-2 py-1;
+    @apply block;
 }
 
 nav ul li a:hover,
