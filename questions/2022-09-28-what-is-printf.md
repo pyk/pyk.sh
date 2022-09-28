@@ -3,7 +3,7 @@ layout: question.njk
 title: What is printf in C?
 description:
     printf is a library function that sends formatted output to stdout. You can
-    use printf to print out something to console log.
+    use printf to print out any value to the terminal console.
 date: Last Modified
 publishedAt: 2022-09-28
 tags:
@@ -13,7 +13,7 @@ tags:
 ---
 
 `printf` is a library function that sends formatted output to stdout. You can
-use `printf` to print out something to console log.
+use `printf` to print out any value to the terminal console.
 
 ### Declaration
 
@@ -64,7 +64,39 @@ which is explained below:
 | `x`       | Print out unsigned hexadecimal integer                                |
 | `X`       | Print out unsigned hexadecimal integer (capital letters)              |
 
-The following example shows the usage of the specifier:
+The `%` character can be escaped using `%%` double sign.
+
+| Length | Description                                                                                                                                                                                                   |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `h`    | The argument is interpreted as a short int or unsigned short int (only applies to integer specifiers: `%d`, `%i`, `%o`, `%u`, `%x` and `%X`)                                                                  |
+| `I`    | The argument is interpreted as a long int or unsigned long int for integer specifiers (`%d`, `%i`, `%o`, `%u`, `%x` and `%X`), and as a wide character or wide character string for specifiers `%c` and `%s`. |
+| `L`    | Print out scientific notation (mantissa/exponent) using `e` character                                                                                                                                         |
+
+The following table show the `[.precision]` values:
+
+| Precision | Description                                                                                                                                                                                                                                          |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.n`      | Where `n` is a number. For integer specifiers (`%d`, `%i`, `%o`, `%u`, `%x`, `%X`) − precision specifies the minimum number of digits to be written. If the value to be written is shorter than this number, the result is padded with leading zeros |
+| `.*`      | The precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted                                                                                                     |
+
+The following table show the `[width]` values:
+
+| Width | Description                                                                                                                                                                                                                 |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `n`   | Where `n` is a number. Minimum number of characters to be printed. If the value to be printed is shorter than this number, the result is padded with blank spaces. The value is not truncated even if the result is larger. |
+| `*`   | The precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted                                                                            |
+
+The following table show the `[flags]` values:
+
+| Flag      | Description                                                                                                                                               |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-`       | Left-justify within the given field width; Right justification is the default (see width sub-specifier)                                                   |
+| `+`       | Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a `-` sign |
+| `<space>` | If no sign is going to be written, a blank space is inserted before thevalue                                                                              |
+
+### Examples
+
+The following example shows the usage of the `printf` function:
 
 ```c
 #include <stdio.h>
@@ -119,23 +151,3 @@ specifier %u input 12, uutput 12
 specifier %x input 12, uutput c
 specifier %X input 12, uutput C
 ```
-
-The `%` character can be escaped using `%%` double sign.
-
-| Length | Description                                                                                                                                                                                                   |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `h`    | The argument is interpreted as a short int or unsigned short int (only applies to integer specifiers: `%d`, `%i`, `%o`, `%u`, `%x` and `%X`)                                                                  |
-| `I`    | The argument is interpreted as a long int or unsigned long int for integer specifiers (`%d`, `%i`, `%o`, `%u`, `%x` and `%X`), and as a wide character or wide character string for specifiers `%c` and `%s`. |
-| `L`    | Print out scientific notation (mantissa/exponent) using `e` character                                                                                                                                         |
-
-The following example shows the usage of the length:
-
-```c
-
-```
-
-| Flag | Description                                                                                                                                               |
-| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-`  | Left-justify within the given field width; Right justification is the default (see width sub-specifier)                                                   |
-| `+`  | Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a `-` sign |
-| ` `  | If no sign is going to be written, a blank space is inserted before thevalue                                                                              |

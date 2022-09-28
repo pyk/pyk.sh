@@ -12,14 +12,42 @@ tags:
     - c
 ---
 
-`printf` prototype is defined like below:
+In this short tutorial, I will show you how to use [`printf`][1] properly
+without shooting yourself in the foot.
+
+For the TL;DR, the correct way to use `printf` is to **always** define a format
+string explicitly:
+
+```c
+char *value = "string %d";
+printf("%s", value);
+```
+
+You can enable `-Wformat=2 -Werror` flag in compilation to warn you from using
+`printf` incorrectly at runtime.
+
+To understand the problem, lets start from the basic first!
+
+### Problem
+
+printf is a library function that sends formatted output to stdout. You can use
+printf to print out any value to the terminal console.
+
+`printf` prototype is defined below:
 
 ```c
 int printf(const char *format, ...);
 ```
 
-The first argument `const char *format` is a format string that contains
-placeholders marked by `%` escape character.
+`printf` takes parametes defined below:
+
+| Parameter | Description                                                                                                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `format`  | This is the string that contains the text to be written to stdout.                                                                                                                                       |
+| `...`     | Depending on the format string, the function may expect a sequence of additional arguments, each containing one value to be inserted instead of each `%`-tag specified in the format parameter (if any). |
+
+`format` can optionally contain embedded format tags that are replaced by the
+values specified in subsequent additional arguments and formatted as requested.
 
 By default, C compiler is doesn't care if you use `printf` correctly or not.
 The following **unsafe** code will compile succesfully without warning or
@@ -65,6 +93,8 @@ gcc printf_unsafe.c
 string 927983944
 ```
 
+### Solution
+
 So, the correct way to use `printf` is **always** define a format string
 explicitly:
 
@@ -98,3 +128,7 @@ printf_unsafe.c:7:2: error: format not a string literal and no format arguments 
     ^
 cc1: all warnings being treated as errors
 ```
+
+That's it folks! Happy hacking!
+
+[1]: /questions/what-is-printf-in-c/
