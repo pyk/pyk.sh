@@ -39,6 +39,28 @@ module.exports = function (eleventyConfig) {
         return filterTags([...tagSet]);
     });
 
+    /*************************************************************************
+     * Collections
+     ************************************************************************/
+
+    /**
+     * Get latest tutorials
+     *
+     * Usage:
+     * {%- for post in collections.latestTutorials -%}'
+     */
+    eleventyConfig.addCollection("latestTutorials", function (collection) {
+        const tutorials = collection.getFilteredByTag("tutorial");
+        const latestTutorials = tutorials.sort((a, b) => {
+            if (a.data.publishedAt > b.data.publishedAt) return -1;
+            return 1;
+        });
+        latestTutorials.forEach((tutorial) =>
+            console.log("DEBUG: publishedAt", tutorial.data.publishedAt)
+        );
+        return latestTutorials;
+    });
+
     /**
      * Group post by year
      *

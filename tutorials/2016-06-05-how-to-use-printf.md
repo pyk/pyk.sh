@@ -4,7 +4,8 @@ title: How to use printf without shooting yourself in the foot
 description:
     printf is essential functions for every c programmers. You need to learn
     the basic behavior of printf in order to use it safely.
-date: 2016-06-05
+date: Last Modified
+publishedAt: 2016-06-05
 tags:
     - post
     - tutorial

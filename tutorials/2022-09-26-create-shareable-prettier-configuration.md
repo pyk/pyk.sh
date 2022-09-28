@@ -6,7 +6,8 @@ description:
     prettier configuration that you can use on multiple projects without need
     to copy-paste your configuration file. If you use prettier on multiple
     projects, this post is for you.
-date: 2022-09-26
+date: Last Modified
+publishedAt: 2022-09-26
 tags:
     - post
     - tutorial
