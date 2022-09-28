@@ -28,7 +28,7 @@ nav ul {
 
 nav ul li a {
     @apply text-sm sm:text-base;
-    @apply font-medium;
+    @apply font-semibold;
     @apply text-label-dark-secondary;
 }
 
@@ -153,7 +153,7 @@ section {
 }
 
 .project-item-info h3 {
-    @apply text-lg font-medium text-label-dark-primary;
+    @apply text-lg font-semibold text-label-dark-primary;
     @apply tracking-wide leading-none;
 }
 
