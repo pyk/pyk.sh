@@ -9,6 +9,7 @@ header:
 
 {%- from "components/project-item/macro.njk" import projectItem -%}
 {%- from "components/posts/macro.njk" import posts -%}
+{%- set latestTutorials = collections.latestTutorials -%}
 
 <main>
         <section id="about">
@@ -44,7 +45,7 @@ header:
             <h2>Latest tutorials</h2>
             {{
                 posts({
-                    posts: collections.tutorial | reverse | limit(5)
+                    posts: latestTutorials | limit(5)
                 })
             }}
             <a href="/tutorials" title="Show all tutorials">Show all tutorials &#10142;</a>
