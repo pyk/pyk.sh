@@ -10,7 +10,6 @@ tags:
     - post
     - faq
     - prettier
-    - typescript
 ---
 
 [Prettier][1] is a tool used by developers to check and fix the format of their

@@ -4,14 +4,44 @@ breadcrumbs:
     - name: Home
       path: "/"
       position: 1
-    - name: FAQ
+    - name: Frequently Asked Questions
       path: "/questions/"
       position: 2
-type: "article"
+type: "post"
 permalink: "/questions/{{ title | slugify }}/"
 ---
 
-<article>
-    {{ content | safe }}
-</article>
+{%- from "components/posts/macro.njk" import posts -%}
+{%- set relatedTutorials = collections.tutorial | related -%}
+{%- set relatedQuestions = collections.faq | related -%}
 
+<main>
+    <article>
+        {{ content | safe }}
+    </article>
+
+    {%- if relatedTutorials | length -%}
+        <section class="latest-post-section">
+            <h2>Related tutorials</h2>
+            {{
+                posts({
+                    posts: relatedTutorials | reverse
+                })
+            }}
+            <a href="/tutorials/" title="Show all tutorials">Show all tutorials &#10142;</a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedQuestions | length -%}
+        <section class="latest-post-section">
+            <h2>Related FAQ</h2>
+            {{
+                posts({
+                    posts: relatedQuestions | reverse
+                })
+            }}
+            <a href="/questions/" title="Show all FAQs">Show all FAQs &#10142;</a>
+        </section>
+    {%- endif -%}
+
+</main>

@@ -1,5 +1,7 @@
 const dayjs = require("dayjs");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const schema = require("@quasibit/eleventy-plugin-schema");
+const { DateTime } = require("luxon");
 
 // Markdowns
 const markdownIt = require("markdown-it");
@@ -15,14 +17,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("etag", function () {
         return String(Date.now());
     });
-
-    /**
-     * Formats a date using dayjs's conventions.
-     * Docs: https://day.js.org/docs/en/display/format
-     * Usage: {{ date | formatDate: "DD/MM/YY"}}
-     */
-    const formatDate = (date, format) => dayjs(date).format(format);
-    eleventyConfig.addFilter("formatDate", formatDate);
 
     /**
      * Get all tags
@@ -84,6 +78,29 @@ module.exports = function (eleventyConfig) {
      ************************************************************************/
 
     /**
+     * Formats a date using dayjs's conventions.
+     * Docs: https://day.js.org/docs/en/display/format
+     * Usage: {{ date | formatDate: "DD/MM/YY"}}
+     */
+    const formatDate = (date, format) => dayjs(date).format(format);
+    eleventyConfig.addFilter("formatDate", formatDate);
+
+    /**
+     * Format a date base on iso8601
+     */
+    eleventyConfig.addFilter("iso8601", (date) => {
+        return DateTime.fromJSDate(date, { zone: "utc" }).toISO();
+    });
+
+    /**
+     * Limit element of array up to max.
+     *
+     * Usage: {{ collections.post | limit(5) }}
+     */
+    const limit = (arr, max) => arr.slice(0, max);
+    eleventyConfig.addFilter("limit", limit);
+
+    /**
      * Related tags filter.
      *
      * Usage:
@@ -107,6 +124,7 @@ module.exports = function (eleventyConfig) {
      * Plugins
      ************************************************************************/
     eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.addPlugin(schema);
 
     /*************************************************************************
      * Libraries

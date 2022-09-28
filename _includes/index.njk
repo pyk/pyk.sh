@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+type: page
 title: pyk
 description: Co-founder of Risedle
 header:
@@ -44,7 +45,7 @@ header:
             <h2>Latest tutorials</h2>
             {{
                 posts({
-                    posts: collections.tutorial | reverse
+                    posts: collections.tutorial | reverse | limit(5)
                 })
             }}
             <a href="/tutorials" title="Show all tutorials">Show all tutorials &#10142;</a>

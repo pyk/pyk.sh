@@ -1,3 +1,26 @@
+---
+meta:
+  language: en-US
+  site:
+    name: pyk
+    description: pyk's personal blog
+    url: https://pyk.sh
+    logo:
+      src: https://pyk.sh/opengraph.png
+      width: 399
+      height: 399
+  author:
+    name: pyk
+  image:
+    src: https://pyk.sh/opengraph.png
+eleventyComputed:
+  meta:
+    url: "https://pyk.sh{{ page.url }}"
+    title: "{{ title }}"
+    description: "{{ description }}"
+    published: "{% if publishedAt %}{{ publishedAt | iso8601 }}{% endif %}"
+    modified: "{{ page.date | iso8601 }}"
+---
 <!doctype html>
 <html lang="en">
 
@@ -31,13 +54,14 @@
     <meta property="og:image:width" content="399">
     <meta property="og:image:height" content="399">
     <meta property="og:image:type" content="image/png">
-    {% if type == "article" %}
+    {% if type == "post" %}
         <meta property="og:type" content="article">
         <meta property="article:published_time" content="{{ date | formatDate("YYYY-MM-DD")}}">
         <meta property="article:author" content="pyk">
     {% else %}
         <meta property="og:type" content="website">
     {% endif %}
+
 
     <!-- Linkedin -->
     <meta name="author" content="pyk">
@@ -49,6 +73,10 @@
 
     <!-- stylesheet -->
     <link rel="stylesheet" href="/style.css?v={% etag %}"/>
+
+    <!-- START SCHEMA MARKUP -->
+    {%- jsonLdScript meta, type, tags -%}
+    <!-- END SCHEMA MARKUP -->
 </head>
 
 <body>
@@ -109,10 +137,12 @@
                 </li>
             {%- endif -%}
         </ol>
-        {% if type == "article" %}
+        {% if type == "post" %}
             <div id="header-info-article">
                 <h1>{{ title }}</h1>
-                <time datetime="{{ date | formatDate("YYYY-MM-DD") }}">{{ date | formatDate("ddd MMM D YYYY") }}</time>
+                <time datetime="{{ publishedAt | formatDate("YYYY-MM-DD") }}">
+                    {{ publishedAt | formatDate("ddd MMM D YYYY") }}
+                </time>
             </div>
         {% else %}
             <div id="header-info-page">

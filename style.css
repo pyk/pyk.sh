@@ -109,7 +109,7 @@ main {
 
 main h1,
 main h2 {
-    @apply font-medium text-2xl;
+    @apply text-xl sm:text-2xl font-semibold;
 }
 
 section {
@@ -219,11 +219,12 @@ section {
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-lg;
     @apply h-max;
+    @apply text-sm sm:text-base;
 }
 
 .post-item h3 {
-    @apply text-lg font-medium text-label-dark-primary;
-    @apply tracking-wide leading-8;
+    @apply text-base sm:text-lg font-semibold text-label-dark-primary;
+    @apply tracking-wide leading-7 sm:leading-8;
 }
 
 /* Opacity hover */
@@ -355,6 +356,19 @@ pre[class*="language-"],
 .token.attr-value,
 .token.string {
     @apply text-pink-dark !important;
+}
+
+.language-autohotkey .token.keyword,
+.token.selector,
+.token.tag {
+    @apply text-purple-dark !important;
+}
+
+.language-autohotkey .token.selector,
+.token.atrule,
+.token.attr-name,
+.token.keyword {
+    @apply text-indigo-dark !important;
 }
 
 article > blockquote {

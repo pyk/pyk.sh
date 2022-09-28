@@ -10,7 +10,6 @@ date: 2022-09-26
 tags:
     - post
     - tutorial
-    - typescript
     - nodejs
     - prettier
 ---
@@ -260,7 +259,7 @@ pnpm prettier:write
 Enjoy and happy hacking!
 
 [1]: /topics/how-to/
-[2]: /what-is-prettier/
+[2]: /questions/what-is-prettier/
 [3]: https://github.com/pyk/prettier-config
 [4]: https://prettier.io/docs/en/options.html
 [5]: https://pyk.sh/create-shareable-prettier-configuration/

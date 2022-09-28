@@ -29,6 +29,12 @@ module.exports = {
                 green: {
                     dark: "#30D158",
                 },
+                purple: {
+                    dark: "#BF5AF2",
+                },
+                indigo: {
+                    dark: "#5E5CE6",
+                },
                 light: {
                     bg: {
                         default: "#FFFFFF",
