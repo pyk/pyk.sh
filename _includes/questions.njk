@@ -8,12 +8,13 @@ breadcrumbs:
 ---
 
 {%- from "components/posts/macro.njk" import posts -%}
+{%- set latestFAQs = collections.latestFAQs -%}
 
 <main>
     <section id="latest-post-section">
         {{
             posts({
-                posts: collections.faq | reverse
+                posts: latestFAQs
             })
         }}
     </section>

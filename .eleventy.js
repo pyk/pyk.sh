@@ -55,10 +55,22 @@ module.exports = function (eleventyConfig) {
             if (a.data.publishedAt > b.data.publishedAt) return -1;
             return 1;
         });
-        latestTutorials.forEach((tutorial) =>
-            console.log("DEBUG: publishedAt", tutorial.data.publishedAt)
-        );
         return latestTutorials;
+    });
+
+    /**
+     * Get latest faq
+     *
+     * Usage:
+     * {%- for post in collections.latestFAQs -%}'
+     */
+    eleventyConfig.addCollection("latestFAQs", function (collection) {
+        const faqs = collection.getFilteredByTag("faq");
+        const latestFAQs = faqs.sort((a, b) => {
+            if (a.data.publishedAt > b.data.publishedAt) return -1;
+            return 1;
+        });
+        return latestFAQs;
     });
 
     /**
