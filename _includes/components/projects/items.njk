@@ -17,9 +17,9 @@
                     <div class="project-item-info-main">
                         <h3>{{ project.data.title }}</h3>
                         <time
-                            datetime="{{ project.data.date | formatDate("YYYY-MM-DD") }}"
+                            datetime="{{ project.data.publishedAt | formatDate("YYYY-MM-DD") }}"
                         >
-                            {{ project.data.date | formatDate("YYYY/MM") }}
+                            {{ project.data.publishedAt | formatDate("YYYY/MM") }}
                         </time>
                     </div>
                     <p>

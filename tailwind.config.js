@@ -35,6 +35,9 @@ module.exports = {
                 indigo: {
                     dark: "#5E5CE6",
                 },
+                yellow: {
+                    dark: "#FFD60A",
+                },
                 light: {
                     bg: {
                         default: "#FFFFFF",

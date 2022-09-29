@@ -13,7 +13,105 @@ eleventyComputed:
           url: https://pyk.sh{{ page.url }}
           position: 3
 ---
+{%- from "components/posts/macro.njk" import posts -%}
+{%- from "components/projects/macro.njk" import projects -%}
+
+{%- set relatedProjects = collections.project | latest | related -%}
+{%- set relatedTutorials = collections.tutorial | latest | related -%}
+{%- set relatedQuestions = collections.faq | latest | related -%}
+
+<header class="header-project">
+    <img
+        alt="{{ title }}"
+        src="/projects/{{ projectId }}.svg"
+        width="64px"
+        height="64px"
+     />
+    <div class="header-project-meta">
+        <h1 class="title">{{ title }}</h1>
+        <p class="subtitle">{{ description }}</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        {%- for link in externalLinks -%}
+        <li>
+            <a
+                href="{{ link.url }}"
+                title="{{ link.name }}"
+            >
+                {{ link.name }} &#8599;
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+</nav>
 
 <main>
-test
+    <div class="px-4 py-2 rounded-2xl bg-yellow-dark text-black text-center
+text-sm">
+        <p>This page is lack of detailed information, I will add more info
+later. </p>
+        <p>If you have any questions, feel free to DM me on twitter.</p>
+    </div>
+
+    <article>
+        {{ content | safe }}
+    </article>
+
+    {%- if relatedProjects | length -%}
+        <section class="latest-post-section">
+            <h2>Related projects</h2>
+            {{
+                projects({
+                    projects: relatedProjects
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/projects/"
+                title="Show all projects"
+            >
+                Show all projects &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedTutorials | length -%}
+        <section class="latest-post-section">
+            <h2>Related tutorials</h2>
+            {{
+                posts({
+                    posts: relatedTutorials | reverse
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/tutorials/"
+                title="Show all tutorials"
+            >
+                Show all tutorials &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedQuestions | length -%}
+        <section class="latest-post-section">
+            <h2>Related FAQ</h2>
+            {{
+                posts({
+                    posts: relatedQuestions | reverse
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/questions/"
+                title="Show all Frequently Asked Questions"
+            >
+                Show all FAQs &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
 </main>

@@ -1,17 +1,16 @@
 ---
 layout: project.njk
-date: 2021-09-19
-title: Risedle ETF
 projectId: risedle-etf
+date: Last Modified
+publishedAt: 2021-09-19
+title: Risedle ETF
 description: Decentralized Leveraged Token Market Protocol
 tags:
     - project
+    - risedle-etf
 stacks:
     - Solidity
     - dapptools
-header:
-    image: "/projects/risedle-etf.svg"
-    showURL: "https://githubc.com/riselde"
 ---
 
 test

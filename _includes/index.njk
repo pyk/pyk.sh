@@ -12,7 +12,9 @@ meta:
 
 {%- from "components/posts/macro.njk" import posts -%}
 {%- from "components/projects/macro.njk" import projects -%}
-{%- set latestTutorials = collections.latestTutorials -%}
+
+{%- set featuredProjects = collections.project | featured | latest | reverse -%}
+{%- set latestTutorials = collections.tutorial | latest | limit(5) -%}
 
 <header id="header-home">
     <img
@@ -40,7 +42,7 @@ meta:
             <h2>Featured projects</h2>
             {{
                 projects({
-                    projects: collections.project
+                    projects: featuredProjects
                 })
             }}
             <a

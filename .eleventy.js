@@ -18,94 +18,9 @@ module.exports = function (eleventyConfig) {
         return String(Date.now());
     });
 
-    /**
-     * Get all tags
-     *
-     * Usage: {{ collections.tags }}
-     */
-    function filterTags(tags) {
-        return (tags || []).filter(
-            (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1
-        );
-    }
-    eleventyConfig.addFilter("filterTags", filterTags);
-
-    eleventyConfig.addCollection("tags", function (collection) {
-        let tagSet = new Set();
-        collection.getAll().forEach((item) => {
-            (item.data.tags || []).forEach((tag) => tagSet.add(tag));
-        });
-
-        return filterTags([...tagSet]);
-    });
-
     /*************************************************************************
      * Collections
      ************************************************************************/
-
-    /**
-     * Get latest tutorials
-     *
-     * Usage:
-     * {%- for post in collections.latestTutorials -%}'
-     */
-    eleventyConfig.addCollection("latestTutorials", function (collection) {
-        const tutorials = collection.getFilteredByTag("tutorial");
-        const latestTutorials = tutorials.sort((a, b) => {
-            if (a.data.publishedAt > b.data.publishedAt) return -1;
-            return 1;
-        });
-        return latestTutorials;
-    });
-
-    /**
-     * Get latest faq
-     *
-     * Usage:
-     * {%- for post in collections.latestFAQs -%}'
-     */
-    eleventyConfig.addCollection("latestFAQs", function (collection) {
-        const faqs = collection.getFilteredByTag("faq");
-        const latestFAQs = faqs.sort((a, b) => {
-            if (a.data.publishedAt > b.data.publishedAt) return -1;
-            return 1;
-        });
-        return latestFAQs;
-    });
-
-    /**
-     * Group post by year
-     *
-     * Usage:
-     * {%- for post in collections.postsByYear | reverse -%}'
-     */
-    eleventyConfig.addCollection("postsByYear", function (collection) {
-        const posts = collection.getFilteredByTag("post");
-        const yearCount = {};
-        posts.forEach(function (post) {
-            const year = post.date.getFullYear();
-            if (year in yearCount) {
-                yearCount[year] += 1;
-            } else {
-                yearCount[year] = 1;
-            }
-        });
-        const yearTracker = {};
-        const postsByYear = posts.reverse().map(function (post) {
-            let year = undefined;
-            let rowspan = undefined;
-            const postYear = post.date.getFullYear();
-            if (!(postYear in yearTracker)) {
-                year = postYear;
-                rowspan = yearCount[year];
-                yearTracker[postYear] = 1;
-            }
-            post["year"] = year;
-            post["rowspan"] = rowspan;
-            return post;
-        });
-        return postsByYear;
-    });
 
     /*************************************************************************
      * Filters
@@ -133,6 +48,36 @@ module.exports = function (eleventyConfig) {
      */
     const limit = (arr, max) => arr.slice(0, max);
     eleventyConfig.addFilter("limit", limit);
+
+    /**
+     * Latest tags filter.
+     *
+     * Usage:
+     *
+     * {%- set latestProjects = collections.project | latest -%}
+     */
+    eleventyConfig.addNunjucksFilter("latest", function (collection = []) {
+        const latest = collection.sort((a, b) => {
+            if (a.data.publishedAt > b.data.publishedAt) return -1;
+            return 1;
+        });
+        return latest;
+    });
+
+    /**
+     * Featured filter.
+     *
+     * Usage:
+     *
+     * {%- set featuredProjects = collections.project | featured | latest -%}
+     */
+    eleventyConfig.addNunjucksFilter("featured", function (collection = []) {
+        console.log("DEBUG: is it executed?");
+        const featured = collection.filter((c) => c.data.featured);
+        console.log("DEBUG: featured", featured);
+        featured.forEach((c) => console.log("DEBUG", c.data.title));
+        return featured;
+    });
 
     /**
      * Related tags filter.

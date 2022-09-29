@@ -158,6 +158,15 @@ header {
     @apply pb-2;
 }
 
+.header-project {
+    @apply flex flex-col space-y-2;
+    @apply pt-2;
+}
+
+.header-project img {
+    @apply w-[64px] h-[64px] rounded-2xl;
+}
+
 /*****************************************************************************
  * Main
  ****************************************************************************/

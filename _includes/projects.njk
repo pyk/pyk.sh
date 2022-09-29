@@ -13,15 +13,19 @@ meta:
 
 {%- from "components/projects/macro.njk" import projects -%}
 
+{%- set featuredProjects = collections.project | featured | latest | reverse -%}
+
 <main>
     <section>
         <div>
             <h1 class="title">Featured projects</h2>
-            <p class="subtitle">List of featured projects</p>
+            <p class="subtitle">
+                A hand-picked selection of projects I’m most proud of
+            </p>
         </div>
         {{
             projects({
-                projects: collections.project
+                projects: featuredProjects
             })
         }}
     </section>
