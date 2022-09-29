@@ -150,7 +150,12 @@ eleventyComputed:
         </ul>
     </nav>
 
-    <nav aria-labelledby="breadcrumbs">
+    <nav
+        aria-labelledby="breadcrumbs"
+        {%- if page.url == "/" -%}
+            class="opacity-0"
+        {%- endif -%}
+    >
         <ol>
             {%- for breadcrumb in breadcrumbs -%}
                 <li>
@@ -163,11 +168,7 @@ eleventyComputed:
                 </li>
             {%- endfor -%}
             <li>
-                <a href="#"
-                    {%- if page.url == "/" -%}
-                        class="opacity-0"
-                    {%- endif -%}
-                >
+                <a href="#">
                     {{ title }}
                 </a>
             </li>

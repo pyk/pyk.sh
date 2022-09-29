@@ -82,9 +82,13 @@ nav > ol:hover > li > a[aria-current="page"] {
 }
 
 nav > ul > li > a:hover,
+nav > ul > li > a:hover span,
 nav > ul > li > a[aria-current="page"]:hover,
+nav > ul > li > a[aria-current="page"]:hover span,
 nav > ol > li > a:hover,
-nav > ol > li > a[aria-current="page"]:hover {
+nav > ol > li > a:hover span,
+nav > ol > li > a[aria-current="page"]:hover,
+nav > ol > li > a[aria-current="page"]:hover span {
     @apply opacity-100;
     @apply text-label-dark-primary;
 }
@@ -95,7 +99,7 @@ nav a[aria-current="page"] {
 }
 
 nav[aria-labelledby="primary-navigation"] {
-    @apply fixed inset-x-0;
+    @apply fixed inset-x-0 z-50;
     @apply backdrop-blur-lg;
 }
 
