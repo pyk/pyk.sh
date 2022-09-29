@@ -1,12 +1,14 @@
 ---
 layout: base.njk
 type: page
-breadcrumbs:
+meta:
+  breadcrumbs:
     - name: Home
+      url: https://pyk.sh/
       position: 1
-      path: "/"
-header:
-    description: List of projects
+    - name: All projects
+      url: https://pyk.sh/projects/
+      position: 2
 ---
 
 {%- from "components/projects/macro.njk" import projects -%}

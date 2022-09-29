@@ -1,12 +1,17 @@
 ---
 layout: base.njk
-breadcrumbs:
-    - name: "Home"
-      path: "/"
-      position: 1
-    - name: "Projects"
-      path: "/projects"
-      position: 2
+eleventyComputed:
+    meta:
+      breadcrumbs:
+        - name: Home
+          url: https://pyk.sh/
+          position: 1
+        - name: All projects
+          url: https://pyk.sh/projects/
+          position: 2
+        - name: "{{ title }}"
+          url: https://pyk.sh{{ page.url }}
+          position: 3
 ---
 
 <main>
