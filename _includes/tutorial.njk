@@ -15,6 +15,16 @@ permalink: "/tutorials/{{ title | slugify }}/"
 {%- set relatedTutorials = collections.tutorial | related -%}
 {%- set relatedQuestions = collections.faq | related -%}
 
+<header class="header-post">
+    <h1 class="title">{{ title }}</h1>
+    <time
+        class="subtitle"
+        datetime="{{ post.data.publishedAt | formatDate("YYYY-MM-DD") }}"
+    >
+        {{ post.data.publishedAt | formatDate("ddd MMM D YYYY") }}
+    </time>
+</header>
+
 <main>
     <article>
         {{ content | safe }}
@@ -35,7 +45,13 @@ permalink: "/tutorials/{{ title | slugify }}/"
                     posts: relatedTutorials | reverse
                 })
             }}
-            <a href="/tutorials/" title="Show all tutorials">Show all tutorials &#10142;</a>
+            <a
+                class="link-bold"
+                href="/tutorials/"
+                title="Show all tutorials"
+            >
+                Show all tutorials &#10142;
+            </a>
         </section>
     {%- endif -%}
 
@@ -47,7 +63,13 @@ permalink: "/tutorials/{{ title | slugify }}/"
                     posts: relatedQuestions | reverse
                 })
             }}
-            <a href="/questions/" title="Show all FAQs">Show all FAQs &#10142;</a>
+            <a
+                class="link-bold"
+                href="/questions/"
+                title="Show all Frequently Asked Questions"
+            >
+                Show all FAQs &#10142;
+            </a>
         </section>
     {%- endif -%}
 

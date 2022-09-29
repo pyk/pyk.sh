@@ -35,6 +35,14 @@ body {
     @apply text-label-dark-primary;
 }
 
+.title {
+    @apply font-semibold text-2xl sm:text-3xl;
+}
+
+.subtitle {
+    @apply text-base sm:text-lg text-label-dark-secondary tracking-wide;
+}
+
 /*****************************************************************************
  * Navigation
  ****************************************************************************/
@@ -142,51 +150,13 @@ header {
     @apply w-[64px] h-[64px] rounded-2xl;
 }
 
-#header-home-info > h1 {
-    @apply font-semibold text-2xl sm:text-3xl;
+.header-page {
+    @apply pb-8;
 }
 
-#header-home-info > p {
-    @apply text-label-dark-secondary text-base;
+.header-post {
+    @apply pb-2;
 }
-
-/*
-
-#header-info-page {
-    @apply flex flex-row;
-    @apply space-x-4 items-center;
-    @apply min-h-[64px];
-}
-
-#header-info-page img {
-    @apply w-[64px] h-[64px];
-    @apply rounded-2xl;
-}
-
-#header-info-page-content {
-    @apply flex flex-col space-y-2;
-}
-
-#header-info-page-content h1 {
-    @apply text-xl sm:text-2xl font-semibold leading-none;
-}
-
-#header-info-page-content p {
-    @apply text-base text-label-dark-secondary tracking-wide;
-}
-
-#header-info-article {
-    @apply flex flex-col space-y-4;
-}
-
-#header-info-article h1 {
-    @apply text-xl sm:text-2xl font-semibold;
-}
-
-#header-info-article > time {
-    @apply text-sm sm:text-base text-label-dark-secondary;
-}
-*/
 
 /*****************************************************************************
  * Main
@@ -287,7 +257,7 @@ section {
 }
 
 .post-item .post-item-time-simple {
-    @apply hidden md:block;
+    @apply hidden sm:block;
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-lg;
     @apply h-max;
@@ -295,7 +265,7 @@ section {
 }
 
 .post-item .post-item-time-full {
-    @apply md:hidden;
+    @apply sm:hidden;
 }
 
 .post-item-time-full {

@@ -10,6 +10,11 @@ breadcrumbs:
 {%- from "components/posts/macro.njk" import posts -%}
 {%- set latestFAQs = collections.latestFAQs -%}
 
+<header class="header-page">
+    <h1 class="title">{{ title }}</h1>
+    <p class="subtitle">{{ description }}</p>
+</header>
+
 <main>
     <section id="latest-post-section">
         {{
