@@ -140,7 +140,7 @@ header {
 main {
     @apply container max-w-2xl mx-auto;
     @apply px-6;
-    @apply flex flex-col space-y-8;
+    @apply flex flex-col space-y-8 sm:space-y-16;
 }
 
 main h1,
