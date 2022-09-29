@@ -86,8 +86,7 @@ eleventyComputed:
 </head>
 
 <body>
-    <!-- START NAVIGATION -->
-    <nav>
+    <nav aria-labelledby="primary-navigation">
         <ul>
             <li>
                 <a
@@ -150,38 +149,32 @@ eleventyComputed:
             </li>
         </ul>
     </nav>
-    <!-- END NAVIGATION -->
 
-    <!-- START HEADER -->
-    <header>
-        <ol
-            id="breadcrumb"
-            itemscope
-            itemtype="https://schema.org/BreadcrumbList"
-        >
+    <nav aria-labelledby="breadcrumbs">
+        <ol>
             {%- for breadcrumb in breadcrumbs -%}
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="{{ breadcrumb.path }}">
-                        <span itemprop="name">{{ breadcrumb.name }}</span>
+                <li>
+                    <a href="{{ breadcrumb.path }}">
+                        {{ breadcrumb.name }}
                     </a>
-                    <meta itemprop="position" content="{{ breadcrumb.position }}" />
                 </li>
                 <li>
-                    &#10095;
+                    <span>&#10095;</span?
                 </li>
             {%- endfor -%}
-            <li
-                itemprop="itemListElement"
-                itemscope
-                itemtype="https://schema.org/ListItem"
-                {%- if page.url == "/" -%}
-                    class="opacity-0"
-                {%- endif -%}
-            >
-                <span itemprop="name">{{ title }}</span>
-                <meta itemprop="position" content="{{ breadcrumbs | length + 1}}" />
+            <li>
+                <a href="#"
+                    {%- if page.url == "/" -%}
+                        class="opacity-0"
+                    {%- endif -%}
+                >
+                    {{ title }}
+                </a>
             </li>
         </ol>
+    </nav>
+
+    <header>
         {% if type == "post" %}
             <div id="header-info-article">
                 <h1>{{ title }}</h1>
@@ -206,12 +199,11 @@ eleventyComputed:
             </div>
         {% endif %}
     </header>
-    <!-- END HEADER -->
 
     {{ content | safe }}
 
     <footer>
-        <nav>
+        <nav aria-labelledby="footer-navigation">
             <ul>
                 <li>
                     <a href="https://twitter.com/sepyke" target="_blank">
