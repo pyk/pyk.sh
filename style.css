@@ -271,6 +271,7 @@ section {
     @apply py-1 px-2 rounded-lg;
     @apply h-max;
     @apply text-sm sm:text-base;
+    @apply w-[96px] text-center;
 }
 
 .post-item .post-item-time-full {
