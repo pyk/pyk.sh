@@ -157,21 +157,25 @@ eleventyComputed:
         {%- endif -%}
     >
         <ol>
-            {%- for breadcrumb in breadcrumbs -%}
-                <li>
-                    <a href="{{ breadcrumb.path }}">
-                        {{ breadcrumb.name }}
-                    </a>
-                </li>
-                <li>
-                    <span>&#10095;</span?
-                </li>
+            {%- set fullURL = "https://pyk.sh" + page.url -%}
+            {%- for breadcrumb in meta.breadcrumbs -%}
+                {%- if fullURL == breadcrumb.url -%}
+                    <li>
+                        <a href="#">
+                            {{ breadcrumb.name }}
+                        </a>
+                    </li>
+                {%- else -%}
+                    <li>
+                        <a href="{{ breadcrumb.url }}">
+                            {{ breadcrumb.name }}
+                        </a>
+                    </li>
+                    <li>
+                        <span>&#10095;</span?
+                    </li>
+                {%- endif -%}
             {%- endfor -%}
-            <li>
-                <a href="#">
-                    {{ title }}
-                </a>
-            </li>
         </ol>
     </nav>
 
