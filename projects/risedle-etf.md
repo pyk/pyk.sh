@@ -3,7 +3,7 @@ layout: project.njk
 date: 2021-09-19
 title: Risedle ETF
 projectId: risedle-etf
-description: Decentralized Leveraged Token Market Protocol. Built on Ethereum
+description: Decentralized Leveraged Token Market Protocol
 tags:
     - project
 stacks:

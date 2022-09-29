@@ -27,6 +27,14 @@ body {
     @apply bg-bg-dark-base-primary text-label-dark-primary;
 }
 
+.link-bold {
+    @apply font-semibold text-sm sm:text-base text-label-dark-secondary;
+}
+
+.link-bold:hover {
+    @apply text-label-dark-primary;
+}
+
 /*****************************************************************************
  * Navigation
  ****************************************************************************/
@@ -219,52 +227,31 @@ section {
 }
 
 .project-item {
-    @apply flex flex-col;
-    @apply space-y-2 sm:space-y-4;
+    @apply flex flex-row items-start space-x-4;
 }
 
-.project-item:hover {
-    @apply no-underline;
+.project-item img {
+    @apply rounded-2xl;
 }
 
 .project-item-info {
-    @apply flex flex-col sm:flex-row sm:items-center;
-    @apply space-y-2 sm:space-y-0 sm:space-x-4;
+    @apply flex flex-col space-y-2;
 }
 
-.project-item-info img {
-    @apply w-[64px] h-[64px] sm:w-[48px] sm:h-[48px];
-    @apply rounded-3xl sm:rounded-2xl;
+.project-item-info-main {
+    @apply flex flex-col space-y-0;
 }
 
-.project-item-info-name {
-    @apply flex flex-col space-y-1;
+.project-item-info-main h3 {
+    @apply text-lg font-semibold sm:text-xl;
 }
 
-.project-item-info-name > h3 {
-    @apply text-base sm:text-lg font-semibold text-label-dark-primary;
-    @apply tracking-wide leading-none;
+.project-item-info-main time {
+    @apply text-base font-semibold leading-none text-label-dark-secondary;
 }
 
-.project-item-info-name > time {
-    @apply text-sm sm:text-base text-label-dark-secondary;
-}
-
-.project-item-description p {
+.project-item-info p {
     @apply text-base;
-}
-
-/* Opacity hover */
-.projects:hover > li {
-    @apply opacity-50;
-}
-
-.projects > li:hover {
-    @apply opacity-100 !important;
-}
-
-.project-item-description {
-    @apply text-base tracking-wide;
 }
 
 .project-item-stacks {
@@ -277,22 +264,13 @@ section {
     @apply py-1 px-2 rounded-xl;
 }
 
-#project-section,
-#latest-post-section,
-.latest-post-section {
-    @apply flex flex-col space-y-6 sm:space-y-8;
+/* Opacity hover */
+.projects:hover > li {
+    @apply opacity-50;
 }
 
-#project-section a,
-#latest-post-section a,
-.latest-post-section a {
-    @apply text-base text-label-dark-secondary;
-}
-
-#project-section a:hover,
-#latest-post-section a:hover,
-.latest-post-section a:hover {
-    @apply text-label-dark-primary;
+.projects > li:hover {
+    @apply opacity-100 !important;
 }
 
 /*****************************************************************************
@@ -320,6 +298,10 @@ section {
     @apply md:hidden;
 }
 
+.post-item-time-full {
+    @apply text-label-dark-secondary;
+}
+
 .post-item h3 {
     @apply text-base sm:text-lg font-semibold text-label-dark-primary;
     @apply tracking-wide leading-7 sm:leading-8;
@@ -335,15 +317,11 @@ section {
 }
 
 /*****************************************************************************
- * Button Component
+ * Sections
  ****************************************************************************/
 
-.button {
-    @apply rounded-xl;
-}
-
-.button .blue {
-    @apply bg-blue-dark;
+section {
+    @apply flex flex-col space-y-6 sm:space-y-8;
 }
 
 /*****************************************************************************
