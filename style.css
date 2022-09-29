@@ -172,7 +172,7 @@ section {
 
 .project-item {
     @apply flex flex-col;
-    @apply space-y-2;
+    @apply space-y-4;
 }
 
 .project-item:hover {
@@ -492,10 +492,19 @@ tbody > tr {
 footer {
     @apply max-w-2xl mx-auto;
     @apply px-6 pt-12 pb-12;
+    @apply flex flex-col space-y-4;
+}
+
+footer nav {
+    @apply p-0;
 }
 
 footer nav ul {
-    @apply flex flex-col sm:flex-row space-y-4 space-x-0 sm:space-x-4 sm:space-y-0;
+    @apply flex flex-row space-x-4;
+}
+
+footer p {
+    @apply text-sm text-label-dark-secondary;
 }
 
 /*****************************************************************************
