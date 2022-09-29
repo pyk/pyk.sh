@@ -72,10 +72,7 @@ module.exports = function (eleventyConfig) {
      * {%- set featuredProjects = collections.project | featured | latest -%}
      */
     eleventyConfig.addNunjucksFilter("featured", function (collection = []) {
-        console.log("DEBUG: is it executed?");
         const featured = collection.filter((c) => c.data.featured);
-        console.log("DEBUG: featured", featured);
-        featured.forEach((c) => console.log("DEBUG", c.data.title));
         return featured;
     });
 

@@ -27,9 +27,9 @@ eleventyComputed:
     <h1 class="title">{{ title }}</h1>
     <time
         class="subtitle"
-        datetime="{{ post.data.publishedAt | formatDate("YYYY-MM-DD") }}"
+        datetime="{{ publishedAt | formatDate("YYYY-MM-DD") }}"
     >
-        {{ post.data.publishedAt | formatDate("ddd MMM D YYYY") }}
+        {{ publishedAt | formatDate("ddd MMM D YYYY") }}
     </time>
 </header>
 

@@ -179,34 +179,6 @@ eleventyComputed:
         </ol>
     </nav>
 
-    <!--
-    <header>
-        {% if type == "post" %}
-            <div id="header-info-article">
-                <h1>{{ title }}</h1>
-                <time datetime="{{ publishedAt | formatDate("YYYY-MM-DD") }}">
-                    {{ publishedAt | formatDate("ddd MMM D YYYY") }}
-                </time>
-            </div>
-        {% else %}
-            <div id="header-info-page">
-                {%- if header.image -%}
-                    <img
-                        src="{{ header.image }}"
-                        alt="{{ title }}"
-                        width="64px"
-                        height="64px"
-                    >
-                {%- endif -%}
-                <div id="header-info-page-content">
-                    <h1>{{ title }}</h1>
-                    <p>{{ description }}</p>
-                </div>
-            </div>
-        {% endif %}
-    </header>
-    -->
-
     {{ content | safe }}
 
     <footer>
