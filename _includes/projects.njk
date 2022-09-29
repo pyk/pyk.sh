@@ -14,6 +14,7 @@ meta:
 {%- from "components/projects/macro.njk" import projects -%}
 
 {%- set featuredProjects = collections.project | featured | latest | reverse -%}
+{%- set latestProjects = collections.project | latest -%}
 
 <main>
     <section>
@@ -31,23 +32,13 @@ meta:
     </section>
     <section>
         <div>
-            <h2 class="title">Latest experiments</h2>
-            <p class="subtitle">List of featured projects</p>
+            <h2 class="title">Latest projects</h2>
+            <p class="subtitle">Showcase of my works, see complete projects on
+my github</p>
         </div>
         {{
             projects({
-                projects: collections.project
-            })
-        }}
-    </section>
-    <section>
-        <div>
-            <h2 class="title">Released projects</h2>
-            <p class="subtitle">List of featured projects</p>
-        </div>
-        {{
-            projects({
-                projects: collections.project
+                projects: latestProjects
             })
         }}
     </section>
