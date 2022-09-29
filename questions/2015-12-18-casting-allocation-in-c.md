@@ -1,16 +1,32 @@
 ---
-layout: post.njk
-title: |
-    Casting Allocation in C
-description: |
-    printf is essential functions for every c programmers. You need to learn
-    the basic behavior of printf in order to use it safely.
-date: 2015-12-18
-permalink: /casting-allocation-in-c/
+layout: question.njk
+title: Do you need to cast malloc?
+description:
+    Do you need to cast malloc? This is another series of deep dive into C
+    programming language.
+date: Last Modified
+publishedAt: 2015-12-18
 tags:
     - post
+    - faq
     - c
 ---
+
+**TLDR**: Do you need to cast malloc? Nope.
+
+You can use dereference of the pointer instead of type name as an argument of
+`sizeof`.
+
+```c
+obj_t *obj = malloc(sizeof *obj);
+obj_t *obj = calloc(nmemb, sizeof *obj);
+```
+
+If you want to know why, then continue below.
+
+## Brief overview
+
+This is another series of deep dive into C programming language.
 
 If I allocate block of memory for the `obj_t` it's look like this
 

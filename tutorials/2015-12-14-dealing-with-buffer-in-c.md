@@ -1,15 +1,37 @@
 ---
-layout: post.njk
-title: |
-    Dealing with Buffer in C
-description: |
-    Buffer or String in C programming language is represented as an array of `char` terminated by null character `\0`. This is a list of rules that I always follow when dealing with buffer.
-date: 2015-12-14
-permalink: /dealing-with-buffer-in-c/
+layout: tutorial.njk
+title: How to allocate, copy and concat buffer in C
+description:
+    In this quick tutorial, I will show you how to allocate new buffer and copy
+    source buffer to target buffer in C programming language.
+date: Last Modified
+publishedAt: 2015-12-14
 tags:
     - post
+    - tutorial
     - c
 ---
+
+In this quick tutorial, I will show you how to allocate new buffer and copy
+source buffer to target buffer in C programming language.
+
+**TLDR**:
+
+```c
+// 👇 Allocate new buffer
+char *buff = (char *)calloc(LEN, sizeof(char));
+
+
+// 👇 Copy source buffer to target buffer
+char buff[6];
+strncpy(buff, "helllo is extra hello", sizeof(buff) - 1);
+buff[sizeof(buff) - 1] = '\0';
+```
+
+If you want to learn more about the basic of buffer in C programming languge,
+continue below.
+
+## Brief overview
 
 Buffer or String in C is represented as an array of `char` terminated by null
 character `\0`.
@@ -36,11 +58,11 @@ have a garbage values (a values from previous operation that are not cleared).
 Where `strcpy` and `strcat` is assume that `dest` is big enough which lead us
 buffer overflow problem if the `src` is larger than `dest`.
 
-This is a list of rules that I always follow when dealing with buffer
+So how to safely allocate and copy buffer in C programming language?
 
-### Allocate new buffer
+## Solution
 
-Use calloc instead of `malloc`.
+Use calloc instead of `malloc` to allocate new buffer:
 
 ```c
 char *buff = (char *)calloc(LEN, sizeof(char));
@@ -51,9 +73,7 @@ char *buff = (char *)calloc(LEN, sizeof(char));
 sure that `buff` is not contains any garbage values or sensitive information
 from the previous operation.
 
-### Copy buffer
-
-Use `strncpy` and `terminate`.
+Use `strncpy` and `terminate` to copy source buffer to target buffer:
 
 ```c
 char buff[6];
@@ -64,9 +84,7 @@ buff[sizeof(buff) - 1] = '\0';
 `strncpy` is copy all the first `sizeof(buff) - 1` from `src`. This help us
 prevent buffer overflow and corrupting the heap.
 
-### Concat two or more buffers
-
-Use `strncat` to concat two or more buffers.
+Use `strncat` to concat two or more buffers:
 
 ```c
 char path[11];

@@ -1,16 +1,27 @@
 ---
-layout: post.njk
-title: |
-    Consistent Compilation In C
-description: |
-    printf is essential functions for every c programmers. You need to learn
-    the basic behavior of printf in order to use it safely.
-date: 2016-01-19
-permalink: /consistent-compilation-in-c/
+layout: tutorial.njk
+title: How to write and compile POSIX compliant C program
+description:
+    In this quick tutorial, I will show you how to write and compile POSIX
+    compliant C program. For TLDR, you need to use the following flags.
+date: Last Modified
+publishedAt: 2016-01-19
 tags:
     - post
+    - tutorial
     - c
 ---
+
+In this quick tutorial, I will show you how to write and compile POSIX
+compliant C program. For TLDR, you need to use the following flags:
+
+```
+clang-3.7 -std=c99 -pedantic -Wall -Werror -o yourprogram yourfile.c
+```
+
+If you want to learn more, feel free to continue below.
+
+## POSIX compliant C program
 
 Compiling C program using `-std` option will save me from a bunch of problems
 about portability of my program. I use `C99` standart, since `C11` is not

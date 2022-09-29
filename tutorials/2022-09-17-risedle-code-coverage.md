@@ -1,17 +1,18 @@
 ---
-layout: post.njk
-title: |
-    Building Risedle Code Coverage
-description: |
+layout: tutorial.njk
+title: How to build you own code coverage report
+description:
     Some people say that the code coverage is not imporant and it just slow
     down the development. The truth is higher code coverage increases your
     chances of finding bugs. And while code coverage doesn't guarantee
     perfection, you'll be significantly less effective without it.
-date: 2022-09-17
-permalink: /risedle-code-coverage/
+date: Last Modified
+publishedAt: 2022-09-17
 tags:
     - post
-    - risedle
+    - tutorial
+    - risedle-code-coverage
+    - jest
 ---
 
 Some people say that the code coverage is not important and it just slow down

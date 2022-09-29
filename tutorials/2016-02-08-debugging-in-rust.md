@@ -1,17 +1,53 @@
 ---
-layout: post.njk
-title: |
-    Debugging in Rust
-description: |
-    Rust programming language comes with traits called Debug as specified
-    in fmt module. We can use this trait to display custom debug information
-    from our struct.
-date: 2016-02-08
-permalink: /debugging-in-rust/
+layout: tutorial.njk
+title: How to use Debug trait in Rust
+description:
+    Rust programming language comes with traits called Debug as specified in
+    fmt module. We can use this trait to display custom debug information from
+    our struct.
+date: Last Modified
+publishedAt: 2016-02-08
 tags:
     - post
+    - tutorial
     - rust
 ---
+
+In this quick tutorial, I will show you how to use Debug trait in Rust
+programming language.
+
+For the TLDR, here is how to use Debug trait in Rust:
+
+{% raw %}
+
+```rust
+// 👇 Use built-in debug
+#[derive(Debug)]
+struct Node {
+    index: i32,
+    data: &'static str,
+}
+
+// 👇 Bring your own debugger
+use std::fmt;
+
+struct Node {
+    index: i32,
+    data: &'static str,
+}
+
+impl fmt::Debug for Node {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        return write!(f, "Node{{{},{:?}}}", self.index, self.data);
+    }
+}
+```
+
+{% endraw %}
+
+If you want to learn more, feel free to continue below.
+
+## How to use Debug in Rust
 
 [Rust][rust] programming language comes with traits called [Debug][dbg] as
 specified in [fmt][fmt] module. We can use this trait to display custom debug
@@ -75,6 +111,8 @@ let n1 = Node{index: 1, data: "Node 1"};
 println!("Debug: {:?}", n1);
 // Debug: Node{1, "Node 1"}
 ```
+
+_So nice!_
 
 [rust]: https://rust-lang.org
 [dbg]: https://doc.rust-lang.org/std/fmt/trait.Debug.html

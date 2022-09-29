@@ -1,25 +1,28 @@
 ---
-layout: post.njk
-title: |
-    Multiple Lines String in C
-description: |
-    There are two ways of splitting char variable to multiple lines in C. I
-    like the cleaner one.
-date: 2016-01-15
-permalink: /multiline-string-in-c/
+layout: tutorial.njk
+title: How to write multiple lines string in C
+description:
+    In this quick tutorial, I will show you how to write multiple line string
+    (multiline string) in C programming language.
+date: Last Modified
+publishedAt: 2016-01-15
 tags:
     - post
+    - tutorial
     - c
 ---
+
+In this quick tutorial, I will show you how to write multiple line string
+(multiline string) in C programming language.
 
 There are two ways of splitting `char *` variable in mupltiple lines.
 
 ```c
-/* the first one */
+// 👇 first approach
 char *str1 = "line 1\n \
 line 2";
 
-/* the second one */
+// 👇 second approach
 char *str2 = "line 1\n"
              "line 2";
 ```
