@@ -10,6 +10,7 @@ tags:
     - post
     - faq
     - foundry
+    - smart-contract
 ---
 
 [Foundry][1] is a development toolkit that helps developers to write, test and

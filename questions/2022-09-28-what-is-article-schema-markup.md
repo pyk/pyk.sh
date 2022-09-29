@@ -11,6 +11,7 @@ tags:
     - post
     - faq
     - blog
+    - pyk-sh
 ---
 
 Article Schema Markup is a markup that embedded in your website or blog to

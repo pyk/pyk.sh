@@ -12,7 +12,8 @@ meta:
 ---
 
 {%- from "components/posts/macro.njk" import posts -%}
-{%- set latestTutorials = collections.latestTutorials -%}
+
+{%- set latestTutorials = collections.tutorial | latest -%}
 
 <header class="header-page">
     <h1 class="title">{{ title }}</h1>

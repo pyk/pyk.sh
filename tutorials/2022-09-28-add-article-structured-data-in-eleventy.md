@@ -13,6 +13,7 @@ tags:
     - tutorial
     - blog
     - eleventy
+    - pyk-sh
 ---
 
 In this tutorial, I will show you how to add [Article Schema Markup][1] on your

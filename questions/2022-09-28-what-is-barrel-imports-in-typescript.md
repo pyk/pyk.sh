@@ -13,6 +13,7 @@ tags:
     - faq
     - typescript
     - barrel-imports
+    - risedle-interface
 ---
 
 Barrel is a technique to combine multiple public functions from multiple module

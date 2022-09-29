@@ -10,6 +10,7 @@ tags:
     - post
     - faq
     - blog
+    - pyk-sh
 ---
 
 Static Site Generator is a program that process a directory with content and

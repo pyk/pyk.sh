@@ -9,6 +9,7 @@ tags:
     - project
     - risedle-interface
     - risedle-etf
+    - jest
 stacks:
     - TypeScript
     - React.js

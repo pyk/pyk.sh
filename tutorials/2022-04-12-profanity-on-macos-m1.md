@@ -11,6 +11,7 @@ tags:
     - post
     - tutorial
     - wallet-address
+    - smart-contract
 ---
 
 **Update**: Please don't use profanity to generate your wallet address. If you

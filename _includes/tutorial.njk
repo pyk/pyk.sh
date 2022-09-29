@@ -17,8 +17,11 @@ eleventyComputed:
 ---
 
 {%- from "components/posts/macro.njk" import posts -%}
-{%- set relatedTutorials = collections.tutorial | related -%}
-{%- set relatedQuestions = collections.faq | related -%}
+{%- from "components/projects/macro.njk" import projects -%}
+
+{%- set relatedProjects = collections.project | related | latest -%}
+{%- set relatedTutorials = collections.tutorial | related | latest -%}
+{%- set relatedQuestions = collections.faq | related | latest -%}
 
 <header class="header-post">
     <h1 class="title">{{ title }}</h1>
@@ -74,6 +77,24 @@ eleventyComputed:
                 title="Show all Frequently Asked Questions"
             >
                 Show all FAQs &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedProjects | length -%}
+        <section class="latest-post-section">
+            <h2>Related projects</h2>
+            {{
+                projects({
+                    projects: relatedProjects
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/projects/"
+                title="Show all projects"
+            >
+                Show all projects &#10142;
             </a>
         </section>
     {%- endif -%}

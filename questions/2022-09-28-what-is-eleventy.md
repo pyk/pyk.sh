@@ -13,6 +13,7 @@ tags:
     - faq
     - blog
     - eleventy
+    - pyk-sh
 ---
 
 [Eleventy][1] is one of the most popular open-source [static site
