@@ -10,6 +10,12 @@ const markdownItAttrs = require("markdown-it-attrs");
 const markdownItTOC = require("markdown-it-toc-done-right");
 
 module.exports = function (eleventyConfig) {
+    /*************************************************************************
+     * Ignore files
+     ************************************************************************/
+    eleventyConfig.ignores.add("README.md");
+    eleventyConfig.ignores.add("drafts");
+
     // Copy all files inside public directory
     eleventyConfig.addPassthroughCopy({ public: "/" });
 
