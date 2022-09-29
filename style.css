@@ -123,9 +123,26 @@ nav[aria-labelledby="breadcrumbs"] p {
 
 header {
     @apply container max-w-2xl mx-auto;
-    @apply px-6 py-2;
-    @apply flex flex-col space-y-2;
+    @apply px-6;
 }
+
+#header-home {
+    @apply flex flex-row items-center space-x-4;
+}
+
+#header-home > img {
+    @apply w-[64px] h-[64px] rounded-2xl;
+}
+
+#header-home-info > h1 {
+    @apply font-semibold text-2xl sm:text-3xl;
+}
+
+#header-home-info > p {
+    @apply text-label-dark-secondary text-base;
+}
+
+/*
 
 #header-info-page {
     @apply flex flex-row;
@@ -161,6 +178,7 @@ header {
 #header-info-article > time {
     @apply text-sm sm:text-base text-label-dark-secondary;
 }
+*/
 
 /*****************************************************************************
  * Main
@@ -169,7 +187,7 @@ header {
 main {
     @apply container max-w-2xl mx-auto;
     @apply px-6;
-    @apply flex flex-col space-y-8 sm:space-y-16;
+    @apply flex flex-col space-y-12 sm:space-y-16;
 }
 
 main h1,
@@ -186,7 +204,8 @@ section {
  ****************************************************************************/
 
 #about p {
-    @apply text-xl tracking-wide;
+    @apply text-lg sm:text-xl tracking-wide;
+    @apply pt-4 sm:pt-6;
 }
 
 /*****************************************************************************
@@ -201,29 +220,38 @@ section {
 
 .project-item {
     @apply flex flex-col;
-    @apply space-y-4;
+    @apply space-y-2 sm:space-y-4;
 }
 
 .project-item:hover {
     @apply no-underline;
 }
 
-.project-item img {
-    @apply w-[48px] h-[48px];
-    @apply rounded-2xl;
-}
-
 .project-item-info {
-    @apply flex flex-row items-center space-x-4;
+    @apply flex flex-col sm:flex-row sm:items-center;
+    @apply space-y-2 sm:space-y-0 sm:space-x-4;
 }
 
-.project-item-info h3 {
+.project-item-info img {
+    @apply w-[64px] h-[64px] sm:w-[48px] sm:h-[48px];
+    @apply rounded-3xl sm:rounded-2xl;
+}
+
+.project-item-info-name {
+    @apply flex flex-col space-y-1;
+}
+
+.project-item-info-name > h3 {
     @apply text-base sm:text-lg font-semibold text-label-dark-primary;
     @apply tracking-wide leading-none;
 }
 
-.project-item-info time {
+.project-item-info-name > time {
     @apply text-sm sm:text-base text-label-dark-secondary;
+}
+
+.project-item-description p {
+    @apply text-base;
 }
 
 /* Opacity hover */
@@ -252,7 +280,7 @@ section {
 #project-section,
 #latest-post-section,
 .latest-post-section {
-    @apply flex flex-col space-y-4;
+    @apply flex flex-col space-y-6 sm:space-y-8;
 }
 
 #project-section a,
