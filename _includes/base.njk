@@ -1,0 +1,210 @@
+---
+meta:
+  language: en-US
+  site:
+    name: pyk
+    description: pyk's personal blog
+    url: https://pyk.sh
+    logo:
+      src: https://pyk.sh/opengraph.png
+      width: 399
+      height: 399
+  author:
+    name: pyk
+  image:
+    src: https://pyk.sh/opengraph.png
+eleventyComputed:
+  meta:
+    url: "https://pyk.sh{{ page.url }}"
+    title: "{{ title }}"
+    description: "{{ description }}"
+    published: "{% if publishedAt %}{{ publishedAt | iso8601 }}{% endif %}"
+    modified: "{{ page.date | iso8601 }}"
+---
+
+{%- set projectCount = collections.project | length -%}
+{%- set tutorialCount = collections.tutorial | length -%}
+{%- set faqCount = collections.faq | length -%}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- HTML meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    <meta name="robots" content="follow, index">
+
+    <title>{{ title }}</title>
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sepyke">
+    <meta name="twitter:creator" content="@sepyke">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="https://pyk.sh/opengraph.png">
+    <meta name="twitter:image:alt" content="Profile picture of pyk">
+    <meta property="twitter:domain" content="pyk.sh">
+    <meta property="twitter:url" content="https://pyk.sh{{ page.url }}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:site_name" content="pyk">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://pyk.sh{{ page.url }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="https://pyk.sh/opengraph.png">
+    <meta property="og:image:secure_url" content="https://pyk.sh/opengraph.png">
+    <meta property="og:image:width" content="399">
+    <meta property="og:image:height" content="399">
+    <meta property="og:image:type" content="image/png">
+    {% if type == "post" %}
+        <meta property="og:type" content="article">
+        <meta property="article:published_time" content="{{ publishedAt | formatDate("YYYY-MM-DD")}}">
+        <meta property="article:author" content="pyk">
+    {% else %}
+        <meta property="og:type" content="website">
+    {% endif %}
+
+
+    <!-- Linkedin -->
+    <meta name="author" content="pyk">
+
+    <!-- SEO Stuff -->
+    <link rel="canonical" href="https://pyk.sh{{ page.url }}" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="/style.css?v={% etag %}"/>
+
+    <!-- START SCHEMA MARKUP -->
+    {%- jsonLdScript meta, type, tags -%}
+    <!-- END SCHEMA MARKUP -->
+</head>
+
+<body>
+    <nav aria-labelledby="primary-navigation">
+        <ul>
+            <li>
+                <a
+                    href="/"
+                    {% if page.url == "/" %}
+                        aria-current="page"
+                    {% endif %}
+                    class="logo"
+                >
+                    {%- if page.url == "/" -%}
+                        <img
+                            src="/sepyke.svg"
+                            alt="pyk"
+                            width="32px"
+                            height="32px"
+                        />
+                    {%- else -%}
+                        <img
+                            src="/opengraph.png"
+                            alt="pyk"
+                            width="32px"
+                            height="32px"
+                        />
+
+                    {%- endif -%}
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/projects/"
+                    {% if page.url == "/projects/" %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    <span>Projects</span>
+                    <span class="count">{{ projectCount }}</span>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/tutorials/"
+                    {% if page.url == "/tutorials/" %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    <span>Tutorials</span>
+                    <span class="count">{{ tutorialCount }}</span>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/questions/"
+                    {% if page.url == "/questions/" %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    <span>FAQ</span>
+                    <span class="count">{{ faqCount }}</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav
+        aria-labelledby="breadcrumbs"
+        {%- if page.url == "/" -%}
+            class="opacity-0"
+        {%- endif -%}
+    >
+        <ol>
+            {%- set fullURL = "https://pyk.sh" + page.url -%}
+            {%- for breadcrumb in meta.breadcrumbs -%}
+                {%- if fullURL == breadcrumb.url -%}
+                    <li>
+                        <a href="#">
+                            {{ breadcrumb.name }}
+                        </a>
+                    </li>
+                {%- else -%}
+                    <li>
+                        <a href="{{ breadcrumb.url }}">
+                            {{ breadcrumb.name }}
+                        </a>
+                    </li>
+                    <li>
+                        <span>&#10095;</span?
+                    </li>
+                {%- endif -%}
+            {%- endfor -%}
+        </ol>
+    </nav>
+
+    {{ content | safe }}
+
+    <footer>
+        <nav aria-labelledby="footer-navigation">
+            <ul>
+                <li>
+                    <a href="https://twitter.com/sepyke" target="_blank">
+                        Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/pyk" target="_blank">
+                        Github
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:gm@pyk.sh">
+                        Email
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <p>
+            Copyright &copy; 2022 <a href="/">pyk</a>. All rights reserved.
+        </p>
+    </footer>
+</body>
+
+</html>

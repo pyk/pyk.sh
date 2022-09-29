@@ -1,0 +1,30 @@
+---
+layout: base.njk
+type: page
+meta:
+  breadcrumbs:
+    - name: Home
+      url: https://pyk.sh/
+      position: 1
+    - name: Frequently Asked Questions
+      url: https://pyk.sh/questions/
+      position: 2
+---
+
+{%- from "components/posts/macro.njk" import posts -%}
+{%- set latestFAQs = collections.faq | latest -%}
+
+<header class="header-page">
+    <h1 class="title">{{ title }}</h1>
+    <p class="subtitle">{{ description }}</p>
+</header>
+
+<main>
+    <section id="latest-post-section">
+        {{
+            posts({
+                posts: latestFAQs
+            })
+        }}
+    </section>
+</main>

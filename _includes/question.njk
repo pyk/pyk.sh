@@ -1,0 +1,95 @@
+---
+layout: base.njk
+type: "post"
+permalink: "/questions/{{ title | slugify }}/"
+eleventyComputed:
+    meta:
+      breadcrumbs:
+        - name: Home
+          url: https://pyk.sh/
+          position: 1
+        - name: Frequently Asked Questions
+          url: https://pyk.sh/questions/
+          position: 2
+        - name: "{{ title }}"
+          url: https://pyk.sh{{ page.url }}
+          position: 3
+---
+
+{%- from "components/posts/macro.njk" import posts -%}
+{%- from "components/projects/macro.njk" import projects -%}
+
+{%- set relatedTutorials = collections.tutorial | related | latest -%}
+{%- set relatedQuestions = collections.faq | related | latest -%}
+{%- set relatedProjects = collections.project | related | latest -%}
+
+<header class="header-post">
+    <h1 class="title">{{ title }}</h1>
+    <time
+        class="subtitle"
+        datetime="{{ publishedAt | formatDate("YYYY-MM-DD") }}"
+    >
+        {{ publishedAt | formatDate("ddd MMM D YYYY") }}
+    </time>
+</header>
+
+<main>
+    <article>
+        {{ content | safe }}
+    </article>
+
+    {%- if relatedTutorials | length -%}
+        <section class="latest-post-section">
+            <h2>Related tutorials</h2>
+            {{
+                posts({
+                    posts: relatedTutorials | reverse
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/tutorials/"
+                title="Show all tutorials"
+            >
+                Show all tutorials &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedQuestions | length -%}
+        <section class="latest-post-section">
+            <h2>Related FAQ</h2>
+            {{
+                posts({
+                    posts: relatedQuestions | reverse
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/questions/"
+                title="Show all Frequently Asked Questions"
+            >
+                Show all FAQs &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+    {%- if relatedProjects | length -%}
+        <section class="latest-post-section">
+            <h2>Related projects</h2>
+            {{
+                projects({
+                    projects: relatedProjects
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/projects/"
+                title="Show all projects"
+            >
+                Show all projects &#10142;
+            </a>
+        </section>
+    {%- endif -%}
+
+</main>

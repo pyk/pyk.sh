@@ -1,0 +1,31 @@
+---
+layout: base.njk
+type: page
+meta:
+  breadcrumbs:
+    - name: Home
+      url: https://pyk.sh/
+      position: 1
+    - name: All tutorials
+      url: https://pyk.sh/tutorials/
+      position: 2
+---
+
+{%- from "components/posts/macro.njk" import posts -%}
+
+{%- set latestTutorials = collections.tutorial | latest -%}
+
+<header class="header-page">
+    <h1 class="title">{{ title }}</h1>
+    <p class="subtitle">{{ description }}</p>
+</header>
+
+<main>
+    <section id="latest-post-section">
+        {{
+            posts({
+                posts: latestTutorials
+            })
+        }}
+    </section>
+</main>

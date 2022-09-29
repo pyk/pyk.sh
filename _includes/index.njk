@@ -1,0 +1,77 @@
+---
+layout: base.njk
+type: page
+title: pyk
+description: Co-founder of Risedle
+meta:
+  breadcrumbs:
+    - name: Home
+      url: https://pyk.sh/
+      position: 1
+---
+
+{%- from "components/posts/macro.njk" import posts -%}
+{%- from "components/projects/macro.njk" import projects -%}
+
+{%- set featuredProjects = collections.project | featured | latest | reverse -%}
+{%- set latestTutorials = collections.tutorial | latest | limit(5) -%}
+
+<header id="header-home">
+    <img
+        src="/opengraph.png"
+        alt="{{ title }}"
+        width="64px"
+        height="64px"
+    >
+    <div id="header-home-info">
+        <h1 class="title">{{ title }}</h1>
+        <p class="subtitle">{{ description }}</p>
+    </div>
+</header>
+
+<main>
+        <section id="about">
+            <p>
+                Helping Web3 investors to gains sustainable returns. Writing
+                about low-level, web & smart contract development.
+            </p>
+        </section>
+
+        <section id="project-section">
+            <div>
+                <h2>Featured projects</h2>
+                <p class="subtitle">
+                    A hand-picked selection of projects I’m most proud of wether
+                    as the author or contributor
+                </p>
+            </div>
+            {{
+                projects({
+                    projects: featuredProjects
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/projects"
+                title="Show all projects"
+            >
+                Show all projects &#10142;
+            </a>
+        </section>
+
+        <section id="latest-post-section">
+            <h2>Latest tutorials</h2>
+            {{
+                posts({
+                    posts: latestTutorials | limit(5)
+                })
+            }}
+            <a
+                class="link-bold"
+                href="/tutorials"
+                title="Show all tutorials"
+            >
+                Show all tutorials &#10142;
+            </a>
+        </section>
+</main>

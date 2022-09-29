@@ -1,5 +1,7 @@
 const dayjs = require("dayjs");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const schema = require("@quasibit/eleventy-plugin-schema");
+const { DateTime } = require("luxon");
 
 // Markdowns
 const markdownIt = require("markdown-it");
@@ -16,6 +18,14 @@ module.exports = function (eleventyConfig) {
         return String(Date.now());
     });
 
+    /*************************************************************************
+     * Collections
+     ************************************************************************/
+
+    /*************************************************************************
+     * Filters
+     ************************************************************************/
+
     /**
      * Formats a date using dayjs's conventions.
      * Docs: https://day.js.org/docs/en/display/format
@@ -25,71 +35,78 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("formatDate", formatDate);
 
     /**
-     * Get all tags
-     *
-     * Usage: {{ collections.tags }}
+     * Format a date base on iso8601
      */
-    function filterTags(tags) {
-        return (tags || []).filter(
-            (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1
-        );
-    }
-    eleventyConfig.addFilter("filterTags", filterTags);
-
-    eleventyConfig.addCollection("tags", function (collection) {
-        let tagSet = new Set();
-        collection.getAll().forEach((item) => {
-            (item.data.tags || []).forEach((tag) => tagSet.add(tag));
-        });
-
-        return filterTags([...tagSet]);
+    eleventyConfig.addFilter("iso8601", (date) => {
+        return DateTime.fromJSDate(date, { zone: "utc" }).toISO();
     });
 
     /**
-     * Group post by year
+     * Limit element of array up to max.
+     *
+     * Usage: {{ collections.post | limit(5) }}
+     */
+    const limit = (arr, max) => arr.slice(0, max);
+    eleventyConfig.addFilter("limit", limit);
+
+    /**
+     * Latest tags filter.
      *
      * Usage:
-     * {%- for post in collections.postsByYear | reverse -%}'
+     *
+     * {%- set latestProjects = collections.project | latest -%}
      */
-    eleventyConfig.addCollection("postsByYear", function (collection) {
-        const posts = collection.getFilteredByTag("post");
-        const yearCount = {};
-        posts.forEach(function (post) {
-            const year = post.date.getFullYear();
-            if (year in yearCount) {
-                yearCount[year] += 1;
-            } else {
-                yearCount[year] = 1;
-            }
+    eleventyConfig.addNunjucksFilter("latest", function (collection = []) {
+        const latest = collection.sort((a, b) => {
+            if (a.data.publishedAt > b.data.publishedAt) return -1;
+            return 1;
         });
-        const yearTracker = {};
-        const postsByYear = posts.reverse().map(function (post) {
-            let year = undefined;
-            let rowspan = undefined;
-            const postYear = post.date.getFullYear();
-            if (!(postYear in yearTracker)) {
-                year = postYear;
-                rowspan = yearCount[year];
-                yearTracker[postYear] = 1;
-            }
-            post["year"] = year;
-            post["rowspan"] = rowspan;
-            return post;
+        return latest;
+    });
+
+    /**
+     * Featured filter.
+     *
+     * Usage:
+     *
+     * {%- set featuredProjects = collections.project | featured | latest -%}
+     */
+    eleventyConfig.addNunjucksFilter("featured", function (collection = []) {
+        const featured = collection.filter((c) => c.data.featured);
+        return featured;
+    });
+
+    /**
+     * Related tags filter.
+     *
+     * Usage:
+     *
+     * {%- set relatedPosts = collections.all | related -%}
+     */
+    eleventyConfig.addNunjucksFilter("related", function (collection = []) {
+        const { tags, page } = this.ctx;
+        return collection.filter((post) => {
+            const filteredTags = post.data.tags?.filter(
+                (tag) => !["post", "tutorial", "project", "faq"].includes(tag)
+            );
+            return (
+                post.url !== page.url &&
+                filteredTags.some((tag) => tags.includes(tag))
+            );
         });
-        return postsByYear;
     });
 
     /*************************************************************************
      * Plugins
      ************************************************************************/
     eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.addPlugin(schema);
 
     /*************************************************************************
      * Libraries
      ************************************************************************/
     const markdownItOptions = {
         html: true,
-        breaks: true,
         linkify: true,
     };
     eleventyConfig.setLibrary(
@@ -106,7 +123,6 @@ module.exports = function (eleventyConfig) {
 
     return {
         dir: {
-            input: "src",
             output: "_site",
         },
     };

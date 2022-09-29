@@ -1,0 +1,46 @@
+---
+layout: base.njk
+type: page
+meta:
+  breadcrumbs:
+    - name: Home
+      url: https://pyk.sh/
+      position: 1
+    - name: All projects
+      url: https://pyk.sh/projects/
+      position: 2
+---
+
+{%- from "components/projects/macro.njk" import projects -%}
+
+{%- set featuredProjects = collections.project | featured | latest | reverse -%}
+{%- set latestProjects = collections.project | latest -%}
+
+<main>
+    <section>
+        <div>
+            <h1 class="title">Featured projects</h2>
+            <p class="subtitle">
+                A hand-picked selection of projects I’m most proud of wether
+                as the author or contributor
+            </p>
+        </div>
+        {{
+            projects({
+                projects: featuredProjects
+            })
+        }}
+    </section>
+    <section>
+        <div>
+            <h2 class="title">Latest projects</h2>
+            <p class="subtitle">Showcase of my works, see complete projects on
+my github</p>
+        </div>
+        {{
+            projects({
+                projects: latestProjects
+            })
+        }}
+    </section>
+</main>

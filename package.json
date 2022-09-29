@@ -6,10 +6,10 @@
     "scripts": {
         "prettier": "prettier --check .",
         "build:site": "eleventy",
-        "build:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --minify",
+        "build:css": "tailwindcss -i ./style.css -o ./_site/style.css --minify",
         "build": "concurrently pnpm:build:*",
         "dev:serve": "eleventy --serve",
-        "dev:css": "tailwindcss -i ./src/style.css -o ./_site/style.css --watch --minify",
+        "dev:css": "tailwindcss -i ./style.css -o ./_site/style.css --watch --minify",
         "dev": "concurrently pnpm:dev:*",
         "prepare": "husky install",
         "postinstall": "pnpm prepare",
@@ -31,6 +31,7 @@
         "tailwindcss": "3.1.8"
     },
     "dependencies": {
+        "@quasibit/eleventy-plugin-schema": "1.10.0",
         "markdown-it": "13.0.1",
         "markdown-it-anchor": "8.6.5",
         "markdown-it-attrs": "4.1.4",
