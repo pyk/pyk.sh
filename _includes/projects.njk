@@ -9,24 +9,40 @@ header:
     description: List of projects
 ---
 
+{%- from "components/projects/macro.njk" import projects -%}
+
 <main>
-    <ul class="projects">
-        {%- for project in collections.project -%}
-            <li>
-                <a class="project-item" href="{{ project.url }}">
-                    <img
-                        class="project-item-logo"
-                        src="/projects/{{ project.data.projectId }}.svg"
-                        alt="{{ project.data.title }}"
-                        width="48px"
-                        height="48px"
-                    >
-                    <div class="project-item-info">
-                        <h3>{{ project.data.title }}</h3>
-                        <time datetime="{{ post.date | formatDate("YYYY-MM-DD") }}">{{ post.date | formatDate("YYYY") }}</time>
-                    </div>
-                </a>
-            </li>
-        {%- endfor -%}
-    </ul>
+    <section>
+        <div>
+            <h2>Featured projects</h2>
+            <p>List of featured projects</p>
+        </div>
+        {{
+            projects({
+                projects: collections.project
+            })
+        }}
+    </section>
+    <section>
+        <div>
+            <h2>Latest experiments</h2>
+            <p>List of featured projects</p>
+        </div>
+        {{
+            projects({
+                projects: collections.project
+            })
+        }}
+    </section>
+    <section>
+        <div>
+            <h2>Released projects</h2>
+            <p>List of featured projects</p>
+        </div>
+        {{
+            projects({
+                projects: collections.project
+            })
+        }}
+    </section>
 </main>

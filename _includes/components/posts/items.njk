@@ -6,10 +6,19 @@
                 href="{{ post.url }}"
                 title="{{ post.data.title }}"
             >
-                <span>
+                <time
+                    class="post-item-time-simple"
+                    datetime="{{ post.data.publishedAt | formatDate("YYYY-MM-DD") }}"
+                >
                     {{ post.data.publishedAt | formatDate("YYYY/MM") }}
-                </span>
+                </time>
                 <h3>{{ post.data.title }}</h3>
+                <time
+                    class="post-item-time-full"
+                    datetime="{{ post.data.publishedAt | formatDate("YYYY-MM-DD") }}"
+                >
+                    {{ post.data.publishedAt | formatDate("ddd MMM D YYYY") }}
+                </time>
             </a>
         </li>
     {%- endfor -%}

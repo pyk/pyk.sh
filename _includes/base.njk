@@ -95,8 +95,24 @@ eleventyComputed:
                     {% if page.url == "/" %}
                         aria-current="page"
                     {% endif %}
+                    class="logo"
                 >
-                    <span>Home</span>
+                    {%- if page.url == "/" -%}
+                        <img
+                            src="/sepyke.svg"
+                            alt="pyk"
+                            width="32px"
+                            height="32px"
+                        />
+                    {%- else -%}
+                        <img
+                            src="/opengraph.png"
+                            alt="pyk"
+                            width="32px"
+                            height="32px"
+                        />
+
+                    {%- endif -%}
                 </a>
             </li>
             <li>

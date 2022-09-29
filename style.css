@@ -49,7 +49,7 @@ nav > ul > li > a[aria-current="page"]:hover {
 
 nav ul {
     @apply list-none pl-0;
-    @apply flex flex-row;
+    @apply flex flex-row items-center;
     @apply space-x-6;
     @apply overflow-x-auto no-scrollbar;
 }
@@ -59,6 +59,14 @@ nav ul li a {
     @apply font-semibold;
     @apply text-label-dark-secondary;
     @apply flex flex-row space-x-2 items-center;
+}
+
+nav ul li a.logo {
+    @apply h-[32px] w-[32px];
+}
+
+nav ul li a.logo img {
+    @apply rounded-lg;
 }
 
 nav ul li a .count {
@@ -83,7 +91,7 @@ nav p {
 
 header {
     @apply container max-w-2xl mx-auto;
-    @apply px-6 py-4;
+    @apply px-6 pt-4 pb-8;
     @apply flex flex-col space-y-2;
 }
 
@@ -118,7 +126,7 @@ header {
 }
 
 #header-info-page-content p {
-    @apply text-base text-label-dark-secondary tracking-wide leading-4;
+    @apply text-base text-label-dark-secondary tracking-wide;
 }
 
 #header-info-article {
@@ -248,14 +256,19 @@ section {
 }
 
 .post-item {
-    @apply flex flex-row space-x-4;
+    @apply flex flex-col sm:flex-row space-x-0 sm:space-x-4;
 }
 
-.post-item span {
+.post-item .post-item-time-simple {
+    @apply hidden md:block;
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-lg;
     @apply h-max;
     @apply text-sm sm:text-base;
+}
+
+.post-item .post-item-time-full {
+    @apply md:hidden;
 }
 
 .post-item h3 {

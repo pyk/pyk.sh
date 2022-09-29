@@ -1,5 +1,5 @@
 ---
 layout: projects.njk
-title: Projects
-description: pyk is a co-founder of Risedle
+title: All projects
+description: A list of projects that I have created or contributed
 ---

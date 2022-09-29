@@ -7,8 +7,8 @@ header:
     image: "/opengraph.png"
 ---
 
-{%- from "components/project-item/macro.njk" import projectItem -%}
 {%- from "components/posts/macro.njk" import posts -%}
+{%- from "components/projects/macro.njk" import projects -%}
 {%- set latestTutorials = collections.latestTutorials -%}
 
 <main>
@@ -22,22 +22,11 @@ header:
 
         <section id="project-section">
             <h2>Featured projects</h2>
-            <ul class="projects">
-                {%- for project in collections.project -%}
-                    <li>
-                        {{
-                            projectItem({
-                                url: project.url,
-                                projectId: project.data.projectId,
-                                title: project.data.title,
-                                date: project.data.date,
-                                description: project.data.description,
-                                stacks: project.data.stacks
-                            })
-                        }}
-                    </li>
-                {%- endfor -%}
-            </ul>
+            {{
+                projects({
+                    projects: collections.project
+                })
+            }}
             <a href="/projects" title="Show all projects">Show all projects &#10142;</a>
         </section>
 
