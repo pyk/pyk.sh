@@ -19,4 +19,5 @@ externalLinks:
     - name: Source code
       url: https://github.com/risedle/etfs
 featured: true
+web3: true
 ---

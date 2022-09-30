@@ -50,17 +50,6 @@ eleventyComputed:
 </nav>
 
 <main>
-    <div class="px-4 py-2 rounded-2xl bg-yellow-dark text-black text-center
-text-sm">
-        <p>This page is lack of detailed information, I will add more info
-later. </p>
-        <p>If you have any questions, feel free to DM me on twitter.</p>
-    </div>
-
-    <article>
-        {{ content | safe }}
-    </article>
-
     {%- if relatedProjects | length -%}
         <section class="latest-post-section">
             <h2>Related projects</h2>

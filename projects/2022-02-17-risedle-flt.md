@@ -22,4 +22,5 @@ externalLinks:
     - name: ABDK Audit
       url: https://github.com/risedle/flt/blob/main/audits/ABDK.pdf
 featured: true
+web3: true
 ---

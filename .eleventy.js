@@ -83,6 +83,18 @@ module.exports = function (eleventyConfig) {
     });
 
     /**
+     * Web3 filter.
+     *
+     * Usage:
+     *
+     * {%- set web3Projects = collections.project | web3 | latest | reverse -%}
+     */
+    eleventyConfig.addNunjucksFilter("web3", function (collection = []) {
+        const featured = collection.filter((c) => c.data.web3);
+        return featured;
+    });
+
+    /**
      * Related tags filter.
      *
      * Usage:
