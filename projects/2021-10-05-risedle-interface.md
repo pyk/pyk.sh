@@ -9,6 +9,7 @@ tags:
     - project
     - risedle-interface
     - risedle-etf
+    - chakra-ui
     - jest
 stacks:
     - TypeScript
