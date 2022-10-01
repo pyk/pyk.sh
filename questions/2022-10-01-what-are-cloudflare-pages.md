@@ -25,8 +25,11 @@ deployment. Your web application will very fast since it’s deployed close to
 your users.
 
 If you want to build dynamic web application you can directly write Cloudflare
-Pages function to handle the HTTP request. You can do all business logic in
-here too. You can also use [Full Stack Web Framework][4] like [Remix][5] to
+Pages function to handle the HTTP request. Cloudflare Pages Functions enable
+you to run server-side code to enable dynamic functionality without running a
+dedicated server. With Functions, you can introduce application aspects such as
+authenticating, querying databases, handling form submissions, or working with
+middleware. You can also use [Full Stack Web Framework][4] like [Remix][5] to
 write fast web application.
 
 Cloudflare Pages is a complete platform that lets you focus on the user
