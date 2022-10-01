@@ -9,7 +9,7 @@ publishedAt: 2022-09-28
 tags:
     - post
     - faq
-    - blog
+    - static-site-generator
     - pyk-sh
 ---
 

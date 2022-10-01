@@ -2,9 +2,8 @@
 layout: question.njk
 title: What is Chakra UI?
 description:
-    Remix is a full stack web framework that helps you to write complete web
-    application from backend to frontend. Backend is a program that run in the
-    server and frontend is a program that runs in the web browser.
+    Chakra UI is a simple, modular and accessible component library that gives
+    you the building blocks you need to build your React applications.
 date: Last Modified
 publishedAt: 2022-10-01
 tags:
