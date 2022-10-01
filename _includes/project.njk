@@ -17,9 +17,9 @@ eleventyComputed:
 {%- from "components/posts/macro.njk" import posts -%}
 {%- from "components/projects/macro.njk" import projects -%}
 
-{%- set relatedProjects = collections.project | latest | related -%}
-{%- set relatedTutorials = collections.tutorial | latest | related -%}
-{%- set relatedQuestions = collections.faq | latest | related -%}
+{%- set relatedProjects = collections.project | related | latest | reverse -%}
+{%- set relatedTutorials = collections.tutorial | related | latest -%}
+{%- set relatedQuestions = collections.faq | related | latest -%}
 
 <header class="header-project">
     <img
@@ -73,7 +73,7 @@ eleventyComputed:
             <h2>Related tutorials</h2>
             {{
                 posts({
-                    posts: relatedTutorials | reverse
+                    posts: relatedTutorials
                 })
             }}
             <a
@@ -91,7 +91,7 @@ eleventyComputed:
             <h2>Related FAQ</h2>
             {{
                 posts({
-                    posts: relatedQuestions | reverse
+                    posts: relatedQuestions
                 })
             }}
             <a
