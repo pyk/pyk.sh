@@ -36,11 +36,11 @@ body {
 }
 
 .title {
-    @apply font-semibold text-2xl sm:text-3xl;
+    @apply font-semibold text-xl sm:text-3xl;
 }
 
 .subtitle {
-    @apply text-base sm:text-lg text-label-dark-secondary tracking-wide;
+    @apply text-sm sm:text-lg text-label-dark-secondary tracking-wide;
 }
 
 /*****************************************************************************
@@ -155,7 +155,7 @@ header {
 }
 
 .header-post {
-    @apply pb-2 flex flex-col space-y-2;
+    @apply pb-2 flex flex-col space-y-1 sm:space-y-2;
 }
 
 .header-project {
@@ -241,6 +241,7 @@ section {
 .stack-item {
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-xl;
+    @apply text-base;
 }
 
 /* Opacity hover */
@@ -284,7 +285,7 @@ section {
 
 .post-item h3 {
     @apply text-base sm:text-lg font-semibold text-label-dark-primary;
-    @apply tracking-wide leading-7 sm:leading-8;
+    @apply tracking-wide sm:leading-8;
 }
 
 /* Opacity hover */
