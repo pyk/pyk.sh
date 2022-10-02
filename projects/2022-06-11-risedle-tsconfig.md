@@ -10,6 +10,7 @@ tags:
     - risedle-tsconfig
     - typescript
     - ecmascript
+    - commonjs
 stacks:
     - TypeScript
 externalLinks:

@@ -10,6 +10,7 @@ tags:
     - post
     - faq
     - ecmascript
+    - javascript-standard
 ---
 
 **ECMAScript (ES)** is a JavaScript standard intended to ensure
