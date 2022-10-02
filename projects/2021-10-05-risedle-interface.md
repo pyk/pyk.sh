@@ -9,6 +9,8 @@ tags:
     - project
     - risedle-interface
     - risedle-etf
+    - risedle-tsconfig
+    - risedle-prettier-config
     - chakra-ui
     - jest
 stacks:

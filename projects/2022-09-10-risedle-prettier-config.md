@@ -4,7 +4,7 @@ projectId: risedle-prettier-config
 date: Last Modified
 publishedAt: 2022-09-10
 title: "@risedle/prettier-config"
-description: Shared Prettier configuration
+description: Risedle's shared Prettier configuration
 tags:
     - project
     - risedle-prettier-config

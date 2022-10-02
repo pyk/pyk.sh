@@ -9,6 +9,7 @@ tags:
     - project
     - risedle-tsconfig
     - typescript
+    - ecmascript
 stacks:
     - TypeScript
 externalLinks:
