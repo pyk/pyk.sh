@@ -13,6 +13,7 @@ tags:
     - risedle-prettier-config
     - chakra-ui
     - jest
+    - typescript
 stacks:
     - TypeScript
     - React.js
