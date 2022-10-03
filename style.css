@@ -28,7 +28,7 @@ body {
 }
 
 .link-bold {
-    @apply font-semibold text-sm sm:text-base text-label-dark-secondary;
+    @apply font-semibold text-base text-label-dark-secondary;
 }
 
 .link-bold:hover {
@@ -36,11 +36,16 @@ body {
 }
 
 .title {
-    @apply font-semibold text-xl sm:text-3xl;
+    @apply font-semibold text-2xl sm:text-3xl;
 }
 
 .subtitle {
-    @apply text-sm sm:text-lg text-label-dark-secondary tracking-wide;
+    @apply text-base sm:text-lg text-label-dark-secondary tracking-wide;
+}
+
+ul li,
+ol li {
+    @apply text-base;
 }
 
 /*****************************************************************************
@@ -271,16 +276,13 @@ section {
     @apply bg-bg-dark-elevated-primary text-label-dark-primary;
     @apply py-1 px-2 rounded-lg;
     @apply h-max;
-    @apply text-sm sm:text-base;
+    @apply text-base;
     @apply w-[96px] min-w-[96px] text-center;
 }
 
-.post-item .post-item-time-full {
-    @apply sm:hidden;
-}
-
 .post-item-time-full {
-    @apply text-label-dark-secondary;
+    @apply text-base text-label-dark-secondary;
+    @apply sm:hidden;
 }
 
 .post-item h3 {
@@ -336,9 +338,8 @@ article > time {
 }
 
 article p {
-    @apply text-sm sm:text-base;
-    @apply leading-5 sm:leading-6;
-    @apply my-4 sm:my-6;
+    @apply text-base;
+    @apply my-6;
 }
 
 article a {
