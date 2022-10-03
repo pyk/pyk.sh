@@ -1,6 +1,6 @@
 ---
 layout: tutorial.njk
-title: How to create shareable TypeScript configuration (tsconfig)?
+title: How to create shareable TypeScript configuration (tsconfig)
 description:
     In this quick tutorial, I will show you how to create shareable and
     reusable TypeScript configuration tsconfig.json. Previously, we learn how
