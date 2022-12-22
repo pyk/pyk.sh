@@ -1,0 +1,13 @@
+---
+pagination:
+    data: notes
+    size: 1
+    alias: note
+permalink: "notes/{{ note.attributes.slug }}/"
+---
+
+{{ note.data.title }} is {{ note.data.publishLink }}
+
+<div>
+{{ note.data.content }}
+</div>
