@@ -6,8 +6,91 @@ pagination:
 permalink: "notes/{{ note.attributes.slug }}/"
 ---
 
-{{ note.data.title }} is {{ note.data.publishLink }}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- HTML meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ note.attributes.description }}">
+        <meta name="robots" content="follow, index">
 
-<div>
-{{ note.data.content }}
-</div>
+        <title>{{ note.data.title }}</title>
+
+        <!-- Twitter card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@sepyke">
+        <meta name="twitter:creator" content="@sepyke">
+        <meta name="twitter:title" content="{{ note.data.title }}">
+        <meta name="twitter:description" content="{{ note.attributes.description }}">
+        <meta name="twitter:image" content="https://pyk.sh/opengraph.png">
+        <meta name="twitter:image:alt" content="Profile picture of pyk">
+        <meta property="twitter:domain" content="pyk.sh">
+        <meta property="twitter:url" content="https://pyk.sh{{ page.url }}">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:title" content="{{ note.data.title }}">
+        <meta property="og:site_name" content="pyk">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:url" content="https://pyk.sh{{ page.url }}">
+        <meta property="og:description" content="{{ note.attributes.description }}">
+        <meta property="og:image" content="https://pyk.sh/opengraph.png">
+        <meta property="og:image:secure_url" content="https://pyk.sh/opengraph.png">
+        <meta property="og:image:width" content="399">
+        <meta property="og:image:height" content="399">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:type" content="article">
+        <meta property="article:published_time" content="{{ note.data.createdAt | parseUnixMilisecondToISO8601 }}">
+        <meta property="article:author" content="pyk">
+
+        <!-- Linkedin -->
+        <meta name="author" content="pyk">
+
+        <!-- SEO Stuff -->
+        <link rel="canonical" href="https://pyk.sh{{ page.url }}" />
+
+        <link rel="icon" href="/favicon.ico" sizes="any">
+
+        <!-- stylesheet -->
+        <link rel="stylesheet" href="/style.css?v={% etag %}"/>
+        <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- START SCHEMA MARKUP -->
+        {# {%- jsonLdScript meta, type, tags -%} #}
+        <!-- END SCHEMA MARKUP -->
+
+        <script async src="/script.js"></script>
+
+        {% eleventyGoogleFonts "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" %}
+    </head>
+    <body>
+        <main class="container mx-auto max-w-[720px] mt-6 px-6">
+            <div class="flex flex-row gap-x-2 items-center">
+                <div>
+                    <a href="/" title="pyk">
+                        <img
+                            class="rounded-full"
+                            src="/pyk.jpeg"
+                            alt="pyk"
+                            width="28px"
+                            height="28px"
+                        />
+                    </a>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-sm text-neutral-800 font-semibold leading-[20px]">
+                        <a href="/" title="pyk">pyk</a>
+                    </span>
+                    <span
+                        class="last-changed-at text-sm text-neutral-400 leading-[20px]"
+                        data-last-changed-at="{{ note.data.lastChangedAt }}">
+                    </span>
+                </div>
+            </div>
+            <article class="markdown-body pt-10">
+                {{ note.data.content | renderAsMarkdown | safe }}
+            </article>
+        </main>
+
+    </body>
+</html>

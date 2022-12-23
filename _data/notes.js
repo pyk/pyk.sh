@@ -30,7 +30,8 @@ module.exports = async function () {
         return getPost();
     });
     const publicNoteData = await Promise.all(getAllPublicNotes);
-    console.log(publicNoteData);
+    // console.log(publicNoteData);
+    // console.log(publicNoteData[0].data.lastChangeUser);
 
     return publicNoteData;
 };
